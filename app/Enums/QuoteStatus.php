@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Enums;
+
+enum QuoteStatus: string
+{
+    case Draft = 'draft';
+    case Sent = 'sent';
+    case Accepted = 'accepted';
+    case Rejected = 'rejected';
+
+    /**
+     * @return array<string>
+     */
+    public static function values(): array
+    {
+        return array_column(self::cases(), 'value');
+    }
+}
