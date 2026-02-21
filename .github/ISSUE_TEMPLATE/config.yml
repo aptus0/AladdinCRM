@@ -6,3 +6,6 @@ contact_links:
   - name: Contribution Guide
     url: https://github.com/aptus0/AladdinCRM/blob/main/CONTRIBUTING.md
     about: Katki standartlari ve PR kurallari.
+  - name: Issue Backlog
+    url: https://github.com/aptus0/AladdinCRM/blob/main/docs/issue-backlog.md
+    about: Hazir issue havuzu ve label onerileri.

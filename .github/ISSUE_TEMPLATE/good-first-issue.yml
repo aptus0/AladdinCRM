@@ -1,0 +1,74 @@
+name: Good First Issue
+description: Beginner-friendly technical task template
+title: "[Good First Issue]: "
+labels: ["good first issue", "help wanted"]
+assignees: []
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Task Title
+      placeholder: Improve dashboard empty state messages
+    validations:
+      required: true
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      options:
+        - Dashboard
+        - Companies
+        - Contacts
+        - Opportunities
+        - Quotes
+        - Tasks
+        - Tickets
+        - Auth
+        - UI/UX
+        - Docs
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Explain current behavior and why this task matters.
+      placeholder: Current empty states are generic and not actionable.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Result
+      description: Describe expected output when task is done.
+      placeholder: Empty states include CTA buttons and Turkish copy.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Checklist for maintainers and contributors.
+      placeholder: |
+        - [ ] UI updated in related page
+        - [ ] Typescript and Svelte checks pass
+        - [ ] No regression in existing behaviors
+        - [ ] Screenshot added in PR
+    validations:
+      required: true
+
+  - type: input
+    id: difficulty
+    attributes:
+      label: Difficulty
+      placeholder: easy (1-3h)
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Related files, docs or issues.

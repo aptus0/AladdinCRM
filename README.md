@@ -238,6 +238,7 @@ Details: [`docs/open-source-model.md`](docs/open-source-model.md)
 - Add tests for behavior changes
 - Read the full guide: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - Open issue templates: [Bug](.github/ISSUE_TEMPLATE/bug-report.yml), [Feature](.github/ISSUE_TEMPLATE/feature-request.yml), [Task](.github/ISSUE_TEMPLATE/task.yml), [Docs](.github/ISSUE_TEMPLATE/documentation.yml)
+- Ready issue pool for maintainers: [`docs/issue-backlog.md`](docs/issue-backlog.md)
 
 ## License
 
