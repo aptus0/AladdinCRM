@@ -1,0 +1,42 @@
+name: Contributor Task
+description: Katkicilar icin teknik gorev kaydi
+title: "[Task]: "
+labels: ["help wanted"]
+assignees: []
+body:
+  - type: input
+    id: goal
+    attributes:
+      label: Gorev Hedefi
+      placeholder: Task Kanban kolon sayisi secilebilir olsun
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Kapsam
+      description: Dahil/haric noktalar
+      placeholder: |
+        Dahil:
+        - UI ayari
+        - backend validation
+
+        Haric:
+        - migration degisikligi
+    validations:
+      required: true
+  - type: textarea
+    id: done-criteria
+    attributes:
+      label: Tamamlanma Kriterleri
+      placeholder: |
+        - [ ] Unit/feature test eklendi
+        - [ ] README guncellendi
+        - [ ] CI basarili
+    validations:
+      required: true
+  - type: input
+    id: references
+    attributes:
+      label: Iliskili Linkler
+      description: Ilgili issue/PR/dokuman baglantilari

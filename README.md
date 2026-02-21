@@ -12,6 +12,10 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
   <a href="https://github.com/aptus0/AladdinCRM/issues"><img src="https://img.shields.io/github/issues/aptus0/AladdinCRM" alt="Issues"></a>
   <a href="https://github.com/aptus0/AladdinCRM/pulls"><img src="https://img.shields.io/github/issues-pr/aptus0/AladdinCRM" alt="Pull Requests"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/stargazers"><img src="https://img.shields.io/github/stars/aptus0/AladdinCRM" alt="Stars"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/network/members"><img src="https://img.shields.io/github/forks/aptus0/AladdinCRM" alt="Forks"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/graphs/contributors"><img src="https://img.shields.io/github/contributors/aptus0/AladdinCRM" alt="Contributors"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/commits/main"><img src="https://img.shields.io/github/last-commit/aptus0/AladdinCRM/main" alt="Last Commit"></a>
   <a href="https://github.com/aptus0/AladdinCRM/labels/good%20first%20issue"><img src="https://img.shields.io/github/issues/aptus0/AladdinCRM/good%20first%20issue" alt="Good First Issues"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-orange.svg" alt="Contributions Welcome"></a>
   <a href="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
@@ -233,7 +237,7 @@ Details: [`docs/open-source-model.md`](docs/open-source-model.md)
 - Keep controllers thin, business logic in service/action layer
 - Add tests for behavior changes
 - Read the full guide: [`CONTRIBUTING.md`](CONTRIBUTING.md)
-- Open issue templates: [Bug](.github/ISSUE_TEMPLATE/bug-report.yml), [Feature](.github/ISSUE_TEMPLATE/feature-request.yml), [Task](.github/ISSUE_TEMPLATE/task.yml)
+- Open issue templates: [Bug](.github/ISSUE_TEMPLATE/bug-report.yml), [Feature](.github/ISSUE_TEMPLATE/feature-request.yml), [Task](.github/ISSUE_TEMPLATE/task.yml), [Docs](.github/ISSUE_TEMPLATE/documentation.yml)
 
 ## License
 

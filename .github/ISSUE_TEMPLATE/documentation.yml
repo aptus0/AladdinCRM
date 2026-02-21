@@ -1,0 +1,25 @@
+name: Documentation
+description: Dokumantasyon iyilestirme veya eksik dokuman bildirimi
+title: "[Docs]: "
+labels: ["documentation"]
+assignees: []
+body:
+  - type: input
+    id: section
+    attributes:
+      label: Etkilenen Bolum
+      placeholder: README / API docs / setup
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Sorun Nedir?
+      description: Eksik, hatali veya guncel olmayan kisim
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Onerilen Duzenleme
+      description: Beklenen metin veya yapi
