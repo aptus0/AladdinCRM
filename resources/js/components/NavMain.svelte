@@ -13,19 +13,25 @@
 
     let {
         items = [],
+        label = 'Platform',
     }: {
         items: NavItem[];
+        label?: string;
     } = $props();
 
     const { currentUrl, isCurrentUrl } = currentUrlState();
 </script>
 
 <SidebarGroup class="px-2 py-0">
-    <SidebarGroupLabel>Platform</SidebarGroupLabel>
+    <SidebarGroupLabel>{label}</SidebarGroupLabel>
     <SidebarMenu>
         {#each items as item (toUrl(item.href))}
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={isCurrentUrl(item.href, $currentUrl)} tooltip={item.title}>
+                <SidebarMenuButton
+                    asChild
+                    isActive={item.isActive ?? isCurrentUrl(item.href, $currentUrl)}
+                    tooltip={item.title}
+                >
                     {#snippet children(props)}
                         <Link {...props} href={toUrl(item.href)} class={props.class}>
                             {#if item.icon}

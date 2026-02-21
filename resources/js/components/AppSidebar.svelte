@@ -1,11 +1,14 @@
 <script lang="ts">
-    import { Link } from '@inertiajs/svelte';
-    import BookOpen from 'lucide-svelte/icons/book-open';
-    import Folder from 'lucide-svelte/icons/folder';
+    import { Link, page } from '@inertiajs/svelte';
+    import Briefcase from 'lucide-svelte/icons/briefcase';
+    import Building2 from 'lucide-svelte/icons/building-2';
+    import FileText from 'lucide-svelte/icons/file-text';
+    import Headset from 'lucide-svelte/icons/headset';
+    import ListChecks from 'lucide-svelte/icons/list-checks';
     import LayoutGrid from 'lucide-svelte/icons/layout-grid';
+    import UserRound from 'lucide-svelte/icons/user-round';
     import type { Snippet } from 'svelte';
     import AppLogo from '@/components/AppLogo.svelte';
-    import NavFooter from '@/components/NavFooter.svelte';
     import NavMain from '@/components/NavMain.svelte';
     import NavUser from '@/components/NavUser.svelte';
     import {
@@ -27,26 +30,78 @@
         children?: Snippet;
     } = $props();
 
-    const mainNavItems: NavItem[] = [
+    function parseCurrentPath(urlString: string): string {
+        const origin = typeof window === 'undefined' ? 'http://localhost' : window.location.origin;
+
+        try {
+            return new URL(urlString, origin).pathname;
+        } catch {
+            return urlString;
+        }
+    }
+
+    function parseCurrentTab(urlString: string): string {
+        const origin = typeof window === 'undefined' ? 'http://localhost' : window.location.origin;
+
+        try {
+            return new URL(urlString, origin).searchParams.get('tab') ?? 'overview';
+        } catch {
+            return 'overview';
+        }
+    }
+
+    const currentPath = $derived(parseCurrentPath($page.url));
+    const currentTab = $derived(parseCurrentTab($page.url));
+    const isDashboard = $derived(currentPath === dashboard().url);
+
+    const mainNavItems = $derived<NavItem[]>([
         {
             title: 'Panel',
             href: dashboard(),
             icon: LayoutGrid,
+            isActive: isDashboard && currentTab === 'overview',
         },
-    ];
+    ]);
 
-    const footerNavItems: NavItem[] = [
+    const crudNavItems = $derived<NavItem[]>([
         {
-            title: 'Github Deposu',
-            href: 'https://github.com/laravel/svelte-starter-kit',
-            icon: Folder,
+            title: 'Company',
+            href: dashboard({ query: { tab: 'companies' } }),
+            icon: Building2,
+            isActive: isDashboard && currentTab === 'companies',
         },
         {
-            title: 'Dokumantasyon',
-            href: 'https://laravel.com/docs/starter-kits#svelte',
-            icon: BookOpen,
+            title: 'Contact',
+            href: dashboard({ query: { tab: 'contacts' } }),
+            icon: UserRound,
+            isActive: isDashboard && currentTab === 'contacts',
         },
-    ];
+        {
+            title: 'Opportunity',
+            href: dashboard({ query: { tab: 'opportunities' } }),
+            icon: Briefcase,
+            isActive: isDashboard && currentTab === 'opportunities',
+        },
+        {
+            title: 'Quote',
+            href: dashboard({ query: { tab: 'quotes' } }),
+            icon: FileText,
+            isActive: isDashboard && currentTab === 'quotes',
+        },
+        {
+            title: 'Task',
+            href: dashboard({ query: { tab: 'tasks' } }),
+            icon: ListChecks,
+            isActive: isDashboard && currentTab === 'tasks',
+        },
+        {
+            title: 'Ticket',
+            href: dashboard({ query: { tab: 'tickets' } }),
+            icon: Headset,
+            isActive: isDashboard && currentTab === 'tickets',
+        },
+    ]);
+
 </script>
 
 <Sidebar collapsible="icon" variant="inset">
@@ -65,11 +120,11 @@
     </SidebarHeader>
 
     <SidebarContent>
-        <NavMain items={mainNavItems} />
+        <NavMain label="Platform" items={mainNavItems} />
+        <NavMain label="CRM CRUD" items={crudNavItems} />
     </SidebarContent>
 
     <SidebarFooter>
-        <NavFooter items={footerNavItems} />
         <NavUser />
     </SidebarFooter>
 </Sidebar>
