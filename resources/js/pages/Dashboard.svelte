@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+    import { onDestroy, onMount } from 'svelte';
     import Activity from 'lucide-svelte/icons/activity';
     import ArrowRight from 'lucide-svelte/icons/arrow-right';
     import Briefcase from 'lucide-svelte/icons/briefcase';
@@ -20,6 +20,7 @@
         | 'tasks'
         | 'tickets';
     type TaskColumnKey = 'todo' | 'doing' | 'done';
+    type TicketStatusFilter = 'all' | 'open' | 'waiting' | 'closed';
 
     type PaginatedResponse<T> = {
         data: T[];
@@ -167,6 +168,13 @@
     const quoteCurrencies = ['TRY', 'USD', 'EUR'];
     const ticketPriorities = ['low', 'medium', 'high', 'urgent'];
     const ticketStatuses = ['open', 'waiting', 'closed'];
+    const ticketFilterChips: Array<{ key: TicketStatusFilter; label: string }> = [
+        { key: 'all', label: 'Tum Ticketler' },
+        { key: 'open', label: 'Acik' },
+        { key: 'waiting', label: 'Beklemede' },
+        { key: 'closed', label: 'Kapali' },
+    ];
+    const SEARCH_DEBOUNCE_MS = 300;
     const taskColumns: Array<{ key: TaskColumnKey; label: string }> = [
         { key: 'todo', label: 'Yapilacak' },
         { key: 'doing', label: 'Devam Eden' },
@@ -226,6 +234,8 @@
     let opportunitySearch = $state('');
     let quoteSearch = $state('');
     let ticketSearch = $state('');
+    let ticketStatusFilter = $state<TicketStatusFilter>('all');
+    let companySearchTimeout: ReturnType<typeof setTimeout> | null = null;
 
     let companies = $state<PaginatedResponse<Company>>(emptyPaginator<Company>());
     let contacts = $state<PaginatedResponse<Contact>>(emptyPaginator<Contact>());
@@ -470,6 +480,34 @@
         };
 
         return labels[status] ?? status;
+    }
+
+    function ticketFilterLabel(filter: TicketStatusFilter): string {
+        if (filter === 'all') {
+            return 'Tum';
+        }
+
+        return ticketLabel(filter);
+    }
+
+    function clearCompanySearchDebounce(): void {
+        if (companySearchTimeout) {
+            clearTimeout(companySearchTimeout);
+            companySearchTimeout = null;
+        }
+    }
+
+    function runCompanySearchNow(): void {
+        clearCompanySearchDebounce();
+        void loadCompanies(1);
+    }
+
+    function scheduleCompanySearch(): void {
+        clearCompanySearchDebounce();
+
+        companySearchTimeout = setTimeout(() => {
+            void loadCompanies(1);
+        }, SEARCH_DEBOUNCE_MS);
     }
 
     function toPositiveNumber(value: string, fallback = 0): number {
@@ -1235,14 +1273,24 @@
         loading.tickets = true;
 
         try {
+            const statusQuery =
+                ticketStatusFilter === 'all'
+                    ? ''
+                    : `&status=${encodeURIComponent(ticketStatusFilter)}`;
+
             tickets = await apiRequest<PaginatedResponse<Ticket>>(
-                `/api/tickets?per_page=8&page=${page}&q=${encodeURIComponent(ticketSearch)}`,
+                `/api/tickets?per_page=8&page=${page}&q=${encodeURIComponent(ticketSearch)}${statusQuery}`,
             );
         } catch (error) {
             setNotice('error', getErrorMessage(error));
         } finally {
             loading.tickets = false;
         }
+    }
+
+    function setTicketStatusFilter(status: TicketStatusFilter): void {
+        ticketStatusFilter = status;
+        void loadTickets(1);
     }
 
     async function openTicket(ticketId: number): Promise<void> {
@@ -1375,6 +1423,10 @@
             loadTasks(),
             loadTickets(),
         ]);
+    });
+
+    onDestroy(() => {
+        clearCompanySearchDebounce();
     });
 </script>
 
@@ -1595,11 +1647,12 @@
                                 class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm md:w-auto md:flex-1"
                                 bind:value={companySearch}
                                 placeholder="Company ara..."
+                                oninput={scheduleCompanySearch}
                             />
                             <button
                                 type="button"
                                 class="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-                                onclick={() => loadCompanies(1)}
+                                onclick={runCompanySearchNow}
                             >
                                 Ara
                             </button>
@@ -2193,6 +2246,20 @@
                     <section class="space-y-4">
                         <article class="rounded-xl border border-slate-200 p-4">
                             <div class="mb-3 flex flex-wrap items-center gap-2">
+                                {#each ticketFilterChips as filterChip (filterChip.key)}
+                                    <button
+                                        type="button"
+                                        class="rounded-full border px-3 py-1.5 text-xs font-medium transition {ticketStatusFilter === filterChip.key
+                                            ? 'border-violet-400 bg-violet-100 text-violet-700'
+                                            : 'border-slate-300 text-slate-600 hover:border-violet-300 hover:text-violet-700'}"
+                                        onclick={() => setTicketStatusFilter(filterChip.key)}
+                                    >
+                                        {filterChip.label}
+                                    </button>
+                                {/each}
+                            </div>
+
+                            <div class="mb-3 flex flex-wrap items-center gap-2">
                                 <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm md:w-auto md:flex-1" bind:value={ticketSearch} placeholder="Ticket ara..." />
                                 <button type="button" class="rounded-lg border border-slate-300 px-3 py-2 text-sm" onclick={() => loadTickets(1)}>Ara</button>
                             </div>
@@ -2229,7 +2296,7 @@
                                 </table>
                             </div>
                             <div class="mt-3 flex items-center justify-between text-xs text-slate-500">
-                                <span>Toplam: {tickets.total}</span>
+                                <span>Toplam: {tickets.total} | Filtre: {ticketFilterLabel(ticketStatusFilter)}</span>
                                 <div class="flex items-center gap-2">
                                     <button type="button" class="rounded border border-slate-300 px-2 py-1 disabled:opacity-50" onclick={() => loadTickets(tickets.current_page - 1)} disabled={tickets.current_page <= 1}>Onceki</button>
                                     <span>{tickets.current_page} / {tickets.last_page}</span>
