@@ -83,6 +83,8 @@ Full blueprint: [`docs/alladdin-crm-mvp.md`](docs/alladdin-crm-mvp.md)
 
 ![Tickets](public/images/landing/tickets-support.svg)
 
+Screenshot refresh guide: [`docs/screenshot-refresh-guide.md`](docs/screenshot-refresh-guide.md)
+
 ## Quick Start
 
 ### 1) Install dependencies
