@@ -158,6 +158,7 @@ All API routes are under `/api` and protected by `auth + verified + license midd
   - `/api/tickets`
 
 Route source: [`routes/web.php`](routes/web.php)
+System status API docs: [`docs/system-status-api.md`](docs/system-status-api.md)
 
 ## Project Structure
 
