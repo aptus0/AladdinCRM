@@ -29,7 +29,7 @@
 <CorporateLayout {canRegister}>
     <section class="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6">
         <div class="max-w-3xl">
-            <p class="text-xs font-semibold tracking-[0.14em] text-cyan-700">KURUMSAL</p>
+            <p class="text-xs font-semibold tracking-[0.14em] text-violet-700">KURUMSAL</p>
             <h1 class="mt-3 text-4xl leading-tight font-semibold tracking-tight text-slate-900 sm:text-5xl">
                 Is hedeflerini merkezde toplayan CRM vizyonu
             </h1>

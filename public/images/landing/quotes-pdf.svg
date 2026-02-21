@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Quote and PDF export screen with sample data">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6f1ff"/>
+      <stop offset="1" stop-color="#fff8ea"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6b3fd2"/>
+      <stop offset="1" stop-color="#8a53f1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="760" rx="26" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1152" height="712" rx="20" fill="#ffffff" stroke="#e8dafd"/>
+  <rect x="24" y="24" width="1152" height="56" rx="20" fill="#f8f2ff"/>
+  <circle cx="58" cy="52" r="7" fill="#fd5f57"/>
+  <circle cx="82" cy="52" r="7" fill="#febc2e"/>
+  <circle cx="106" cy="52" r="7" fill="#28c840"/>
+  <text x="152" y="57" fill="#4a2a7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Quotes + PDF Export</text>
+  <text x="1090" y="57" text-anchor="end" fill="#6b578d" font-family="Inter, Arial, sans-serif" font-size="12">Draft | Q-2026-018</text>
+
+  <rect x="52" y="104" width="560" height="610" rx="16" fill="#ffffff" stroke="#e9defb"/>
+  <text x="80" y="138" fill="#3d2568" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Teklif Bilgileri</text>
+
+  <text x="80" y="170" fill="#6d598f" font-family="Inter, Arial, sans-serif" font-size="11">Company</text>
+  <rect x="80" y="178" width="246" height="34" rx="8" fill="#f8f3ff"/>
+  <text x="94" y="199" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="12">Artemis Dijital Ajans</text>
+
+  <text x="344" y="170" fill="#6d598f" font-family="Inter, Arial, sans-serif" font-size="11">Opportunity</text>
+  <rect x="344" y="178" width="246" height="34" rx="8" fill="#f8f3ff"/>
+  <text x="358" y="199" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="12">Website Yenileme Projesi</text>
+
+  <text x="80" y="232" fill="#6d598f" font-family="Inter, Arial, sans-serif" font-size="11">Currency</text>
+  <rect x="80" y="240" width="120" height="34" rx="8" fill="#f8f3ff"/>
+  <text x="94" y="261" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="12">TRY</text>
+
+  <text x="216" y="232" fill="#6d598f" font-family="Inter, Arial, sans-serif" font-size="11">Status</text>
+  <rect x="216" y="240" width="120" height="34" rx="8" fill="#f8f3ff"/>
+  <text x="230" y="261" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="12">Sent</text>
+
+  <text x="352" y="232" fill="#6d598f" font-family="Inter, Arial, sans-serif" font-size="11">Valid Until</text>
+  <rect x="352" y="240" width="238" height="34" rx="8" fill="#f8f3ff"/>
+  <text x="366" y="261" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="12">2026-03-15</text>
+
+  <rect x="80" y="296" width="510" height="308" rx="12" fill="#fff" stroke="#e8dbfc"/>
+  <rect x="80" y="296" width="510" height="34" rx="12" fill="#f5eeff"/>
+  <text x="96" y="318" fill="#563786" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Aciklama</text>
+  <text x="334" y="318" fill="#563786" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Adet</text>
+  <text x="396" y="318" fill="#563786" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Birim</text>
+  <text x="460" y="318" fill="#563786" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">KDV</text>
+  <text x="520" y="318" fill="#563786" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Toplam</text>
+
+  <text x="96" y="356" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">UI/UX Tasarim Paketi</text>
+  <text x="338" y="356" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">1</text>
+  <text x="396" y="356" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">58,000</text>
+  <text x="460" y="356" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">%20</text>
+  <text x="520" y="356" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">69,600</text>
+
+  <text x="96" y="392" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">Frontend Gelistirme</text>
+  <text x="338" y="392" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">1</text>
+  <text x="396" y="392" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">86,000</text>
+  <text x="460" y="392" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">%20</text>
+  <text x="520" y="392" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">103,200</text>
+
+  <text x="96" y="428" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">API Entegrasyon + QA</text>
+  <text x="338" y="428" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">1</text>
+  <text x="396" y="428" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">34,000</text>
+  <text x="460" y="428" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">%20</text>
+  <text x="520" y="428" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">40,800</text>
+
+  <rect x="80" y="622" width="152" height="40" rx="20" fill="#f5c542"/>
+  <text x="156" y="647" text-anchor="middle" fill="#3b2362" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Kaydet</text>
+  <rect x="244" y="622" width="190" height="40" rx="20" fill="url(#accent)"/>
+  <text x="339" y="647" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">PDF Olustur</text>
+
+  <rect x="634" y="104" width="518" height="610" rx="16" fill="#ffffff" stroke="#e9defb"/>
+  <rect x="662" y="132" width="462" height="542" rx="14" fill="#fff" stroke="#e8dbfc"/>
+
+  <text x="690" y="168" fill="#3d2568" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Alladdin CRM Teklif Dokumani</text>
+  <text x="690" y="188" fill="#7a659f" font-family="Inter, Arial, sans-serif" font-size="11">Quote No: Q-2026-018 | Artemis Dijital Ajans</text>
+
+  <rect x="690" y="214" width="406" height="1" fill="#ece1ff"/>
+
+  <text x="690" y="246" fill="#5b4583" font-family="Inter, Arial, sans-serif" font-size="11">Ara Toplam</text>
+  <text x="1088" y="246" text-anchor="end" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">178,000 TRY</text>
+
+  <text x="690" y="274" fill="#5b4583" font-family="Inter, Arial, sans-serif" font-size="11">Iskonto</text>
+  <text x="1088" y="274" text-anchor="end" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">-8,900 TRY</text>
+
+  <text x="690" y="302" fill="#5b4583" font-family="Inter, Arial, sans-serif" font-size="11">KDV %20</text>
+  <text x="1088" y="302" text-anchor="end" fill="#3f2a66" font-family="Inter, Arial, sans-serif" font-size="11">33,820 TRY</text>
+
+  <rect x="690" y="326" width="406" height="46" rx="10" fill="#f5eeff"/>
+  <text x="706" y="354" fill="#4a2a7a" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Genel Toplam</text>
+  <text x="1088" y="354" text-anchor="end" fill="#4a2a7a" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">202,920 TRY</text>
+
+  <text x="690" y="408" fill="#7a659f" font-family="Inter, Arial, sans-serif" font-size="11">Not: Odeme plani 50% pesin, 50% teslimde</text>
+  <text x="690" y="430" fill="#7a659f" font-family="Inter, Arial, sans-serif" font-size="11">Teslim suresi: 6 hafta</text>
+
+  <rect x="930" y="596" width="166" height="56" rx="10" fill="#ffe6e8" stroke="#ffc7cd"/>
+  <text x="1013" y="621" text-anchor="middle" fill="#b13d4a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">PDF</text>
+  <text x="1013" y="640" text-anchor="middle" fill="#8f4b56" font-family="Inter, Arial, sans-serif" font-size="11">Ready for Send</text>
+</svg>

@@ -5,9 +5,11 @@ use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\DashboardMetricsController;
 use App\Http\Controllers\Api\OpportunityController;
 use App\Http\Controllers\Api\QuoteController;
+use App\Http\Controllers\Api\SystemStatusController;
 use App\Http\Controllers\Api\TaskController;
 use App\Http\Controllers\Api\TicketController;
 use App\Http\Controllers\Api\TicketMessageController;
+use App\Http\Middleware\EnsureLicenseIsValid;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
@@ -40,11 +42,12 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'verified'])
+Route::middleware(['auth', 'verified', EnsureLicenseIsValid::class])
     ->prefix('api')
     ->name('api.')
     ->group(function (): void {
         Route::get('/dashboard/metrics', DashboardMetricsController::class)->name('dashboard.metrics');
+        Route::get('/system/status', SystemStatusController::class)->name('system.status');
 
         Route::get('/opportunities/pipeline-summary', [OpportunityController::class, 'pipelineSummary'])
             ->name('opportunities.pipeline-summary');

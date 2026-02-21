@@ -19,17 +19,24 @@
     ];
 
     const activePath = $derived($page.url.split('?')[0] || '/');
+    const isHome = $derived(activePath === '/');
     const year = new Date().getFullYear();
 </script>
 
-<div class="min-h-svh bg-slate-50 text-slate-900">
-    <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
+<div class="min-h-svh text-slate-900 {isHome ? 'bg-[#140b28]' : 'bg-slate-50'}">
+    <header
+        class="sticky top-0 z-50 transition-colors {isHome
+            ? 'border-b border-transparent bg-transparent'
+            : 'border-b border-slate-200/80 bg-white/90 backdrop-blur-xl'}"
+    >
         <div class="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
             <Link href={home()} class="flex items-center gap-3">
                 <img
                     src="/brand/aladdin-crm-icon.svg"
                     alt="Aladdin CRM ikon"
-                    class="h-10 w-10 rounded-xl border border-slate-200 bg-white p-1 shadow-sm"
+                    class="h-10 w-10 rounded-xl border p-1 {isHome
+                        ? 'border-white/35 bg-white/10 shadow-[0_14px_30px_-18px_rgba(15,23,42,0.85)]'
+                        : 'border-slate-200 bg-white shadow-sm'}"
                     loading="lazy"
                     decoding="async"
                 />
@@ -42,13 +49,17 @@
                 />
             </Link>
 
-            <nav class="hidden items-center gap-1 rounded-full border border-slate-200 bg-white px-2 py-1.5 lg:flex">
+            <nav
+                class="hidden items-center gap-1 rounded-full border px-2 py-1.5 lg:flex {isHome
+                    ? 'border-white/25 bg-white/10 backdrop-blur-xl'
+                    : 'border-slate-200 bg-white'}"
+            >
                 {#each navItems as item (item.href)}
                     <Link
                         href={item.href}
                         class="rounded-full px-4 py-2 text-sm font-medium transition-colors {activePath === item.href
-                            ? 'bg-slate-900 text-white'
-                            : 'text-slate-700 hover:bg-slate-100'}"
+                            ? (isHome ? 'bg-amber-300 text-violet-950' : 'bg-violet-700 text-white')
+                            : (isHome ? 'text-white/90 hover:bg-white/15' : 'text-slate-700 hover:bg-violet-50 hover:text-violet-800')}"
                     >
                         {item.label}
                     </Link>
@@ -58,14 +69,18 @@
             <div class="flex items-center gap-2">
                 <Link
                     href={login()}
-                    class="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100"
+                    class="rounded-full border px-4 py-2 text-sm font-medium transition-colors {isHome
+                        ? 'border-white/35 bg-white/5 text-white hover:bg-white/15'
+                        : 'border-violet-200 bg-white text-violet-800 hover:bg-violet-50'}"
                 >
                     Giris Yap
                 </Link>
                 {#if canRegister}
                     <Link
                         href={register()}
-                        class="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                        class="rounded-full px-4 py-2 text-sm font-semibold transition-colors {isHome
+                            ? 'bg-amber-300 text-violet-950 hover:bg-amber-200'
+                            : 'bg-violet-700 text-white hover:bg-violet-600'}"
                     >
                         Ucretsiz Basla
                     </Link>

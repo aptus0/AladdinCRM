@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Task kanban board with real project tasks">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6f1ff"/>
+      <stop offset="1" stop-color="#fff8ea"/>
+    </linearGradient>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5a31b8"/>
+      <stop offset="1" stop-color="#7a46e0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="760" rx="26" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1152" height="712" rx="20" fill="#ffffff" stroke="#e8dafd"/>
+
+  <rect x="24" y="24" width="1152" height="56" rx="20" fill="#f8f2ff"/>
+  <circle cx="58" cy="52" r="7" fill="#fd5f57"/>
+  <circle cx="82" cy="52" r="7" fill="#febc2e"/>
+  <circle cx="106" cy="52" r="7" fill="#28c840"/>
+  <text x="152" y="57" fill="#4a2a7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Task Kanban Board</text>
+  <text x="1090" y="57" text-anchor="end" fill="#6b578d" font-family="Inter, Arial, sans-serif" font-size="12">Sprint 08 | 21 Feb 2026</text>
+
+  <rect x="52" y="102" width="1096" height="84" rx="14" fill="url(#hdr)"/>
+  <text x="80" y="136" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Alladdin CRM Gecis Plani</text>
+  <text x="80" y="160" fill="#e4d7ff" font-family="Inter, Arial, sans-serif" font-size="12">Toplam 19 gorev | Tamamlanan 8 | Sprint velocity %42</text>
+
+  <rect x="52" y="206" width="346" height="510" rx="16" fill="#f9f4ff" stroke="#e7d8fc"/>
+  <rect x="426" y="206" width="346" height="510" rx="16" fill="#f9f4ff" stroke="#e7d8fc"/>
+  <rect x="800" y="206" width="346" height="510" rx="16" fill="#f9f4ff" stroke="#e7d8fc"/>
+
+  <text x="78" y="238" fill="#4b2f7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">TODO</text>
+  <rect x="136" y="224" width="30" height="20" rx="10" fill="#efe4ff"/>
+  <text x="151" y="238" text-anchor="middle" fill="#5f3f93" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">7</text>
+
+  <text x="452" y="238" fill="#4b2f7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">DOING</text>
+  <rect x="516" y="224" width="30" height="20" rx="10" fill="#efe4ff"/>
+  <text x="531" y="238" text-anchor="middle" fill="#5f3f93" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">4</text>
+
+  <text x="826" y="238" fill="#4b2f7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">DONE</text>
+  <rect x="880" y="224" width="30" height="20" rx="10" fill="#efe4ff"/>
+  <text x="895" y="238" text-anchor="middle" fill="#5f3f93" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">8</text>
+
+  <rect x="72" y="256" width="306" height="108" rx="12" fill="#fff" stroke="#e7d8fc"/>
+  <text x="88" y="284" fill="#3e2965" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Company filtrelerini role bazli ayir</text>
+  <text x="88" y="304" fill="#786396" font-family="Inter, Arial, sans-serif" font-size="10">Assignee: Samet | Due: 23 Feb</text>
+  <rect x="88" y="320" width="72" height="22" rx="11" fill="#fff2cc"/>
+  <text x="124" y="334" text-anchor="middle" fill="#8b5b13" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">High</text>
+
+  <rect x="72" y="376" width="306" height="108" rx="12" fill="#fff" stroke="#e7d8fc"/>
+  <text x="88" y="404" fill="#3e2965" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Quote tablo toplamlarini optimize et</text>
+  <text x="88" y="424" fill="#786396" font-family="Inter, Arial, sans-serif" font-size="10">Assignee: Merve | Due: 24 Feb</text>
+  <rect x="88" y="440" width="78" height="22" rx="11" fill="#efe7ff"/>
+  <text x="127" y="454" text-anchor="middle" fill="#5f3f93" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">Normal</text>
+
+  <rect x="446" y="256" width="306" height="134" rx="12" fill="#fff" stroke="#e7d8fc"/>
+  <text x="462" y="284" fill="#3e2965" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Ticket mesaj API performans testi</text>
+  <text x="462" y="304" fill="#786396" font-family="Inter, Arial, sans-serif" font-size="10">Assignee: Ahmet | Due: 22 Feb</text>
+  <text x="462" y="324" fill="#786396" font-family="Inter, Arial, sans-serif" font-size="10">Alt gorev: query index, response cache, validation</text>
+  <rect x="462" y="340" width="92" height="22" rx="11" fill="#ffe3e7"/>
+  <text x="508" y="354" text-anchor="middle" fill="#a53d4b" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">Critical</text>
+
+  <rect x="446" y="402" width="306" height="108" rx="12" fill="#fff" stroke="#e7d8fc"/>
+  <text x="462" y="430" fill="#3e2965" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Landing slider metinlerini revize et</text>
+  <text x="462" y="450" fill="#786396" font-family="Inter, Arial, sans-serif" font-size="10">Assignee: Eda | Due: 25 Feb</text>
+  <rect x="462" y="466" width="78" height="22" rx="11" fill="#efe7ff"/>
+  <text x="501" y="480" text-anchor="middle" fill="#5f3f93" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">Normal</text>
+
+  <rect x="820" y="256" width="306" height="108" rx="12" fill="#fff" stroke="#e7d8fc"/>
+  <text x="836" y="284" fill="#3e2965" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Login split screen final tasarim</text>
+  <text x="836" y="304" fill="#786396" font-family="Inter, Arial, sans-serif" font-size="10">Tamamlandi: 20 Feb | Reviewer: Admin</text>
+  <rect x="836" y="320" width="82" height="22" rx="11" fill="#dcfce7"/>
+  <text x="877" y="334" text-anchor="middle" fill="#187b42" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">Completed</text>
+
+  <rect x="820" y="376" width="306" height="108" rx="12" fill="#fff" stroke="#e7d8fc"/>
+  <text x="836" y="404" fill="#3e2965" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Ticket middleware hatasi cozuldu</text>
+  <text x="836" y="424" fill="#786396" font-family="Inter, Arial, sans-serif" font-size="10">Tamamlandi: 19 Feb | PR #42</text>
+  <rect x="836" y="440" width="82" height="22" rx="11" fill="#dcfce7"/>
+  <text x="877" y="454" text-anchor="middle" fill="#187b42" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">Completed</text>
+
+  <rect x="820" y="496" width="306" height="108" rx="12" fill="#fff" stroke="#e7d8fc"/>
+  <text x="836" y="524" fill="#3e2965" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Seeder + demo data guncellemesi</text>
+  <text x="836" y="544" fill="#786396" font-family="Inter, Arial, sans-serif" font-size="10">Tamamlandi: 18 Feb | Sprint 08</text>
+  <rect x="836" y="560" width="82" height="22" rx="11" fill="#dcfce7"/>
+  <text x="877" y="574" text-anchor="middle" fill="#187b42" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">Completed</text>
+</svg>

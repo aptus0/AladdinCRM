@@ -30,21 +30,21 @@
         auth: {
             badge: 'ALADDIN CRM',
             headline: 'Tum musteri sureclerini tek bir platformdan yonetin',
-            summary: 'Satis, teklif, destek ve gorev operasyonlari kurumsal duzende ayni panelde birlesir.',
+            summary: 'Satis, teklif, destek ve gorev operasyonlari tek panelde duzenli sekilde yonetilir.',
             highlights: ['Musteri 360', 'Pipeline Takibi', 'Destek Sureci'],
             flow: ['Kimlik dogrulama', 'Rol bazli yetki', 'Modul veri yukleme'],
         },
         login: {
             badge: 'GUVENLI GIRIS',
             headline: 'Ekibinizin CRM paneline guvenli baglanti',
-            summary: 'Kullanici dogrulanir, policy kontrolleri calisir ve dashboard verileri oturum icinde acilir.',
+            summary: 'Kullanici dogrulanir, yetkiler kontrol edilir ve dashboard verileri oturum icinde yuklenir.',
             highlights: ['Guvenli Oturum', 'Policy Kontrolu', 'Canli Dashboard'],
             flow: ['Email + sifre kontrolu', 'Yetki dogrulamasi', 'Dashboard acilisi'],
         },
         register: {
             badge: 'HIZLI KURULUM',
             headline: 'Dakikalar icinde kurumsal CRM baslangici',
-            summary: 'Hesap olusturulduktan sonra ekip rol yapisi ve temel moduller otomatik hazirlanir.',
+            summary: 'Hesap olusturulduktan sonra ekip rolleri ve temel moduller hazir sekilde acilir.',
             highlights: ['Hesap Kurulumu', 'Rol Yapisi', 'Hazir Moduller'],
             flow: ['Kayit dogrulama', 'Ilk rol atama', 'Calisma alani olusturma'],
         },
@@ -53,181 +53,80 @@
     const currentScene = $derived(sceneMap[sceneType]);
 </script>
 
-<div class="relative min-h-svh overflow-hidden bg-[#f3f8ff] text-slate-900">
-    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.2),_transparent_48%)]"></div>
-    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(2,132,199,0.14),_transparent_52%)]"></div>
+<div class="relative min-h-svh overflow-hidden bg-[#f7f2ff] text-slate-900">
+    <div class="mx-auto grid min-h-svh w-full lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+        <section class="relative min-h-[40svh] overflow-hidden bg-[#1f0f45] text-slate-100 lg:min-h-svh">
+            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,_rgba(167,139,250,0.26),_transparent_45%)]"></div>
+            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_86%_86%,_rgba(250,204,21,0.18),_transparent_48%)]"></div>
+            <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(150deg,rgba(22,9,54,0.8),rgba(49,22,108,0.86))]"></div>
 
-    <div class="relative mx-auto grid min-h-svh w-full max-w-7xl gap-5 p-4 sm:p-6 lg:grid-cols-[minmax(0,480px)_minmax(0,1fr)] lg:p-8">
-        <section class="flex items-center">
-            <div class="w-full rounded-[28px] border border-sky-100 bg-white p-6 shadow-[0_26px_80px_-34px_rgba(14,116,210,0.45)] sm:p-8">
-                <Link href={home()} class="mb-7 inline-flex items-center gap-3">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-100 bg-white shadow-sm">
-                        <AppLogoIcon class="size-9" />
-                    </div>
+            <div class="relative mx-auto flex h-full w-full max-w-3xl flex-col justify-between gap-8 px-6 py-8 sm:px-10 lg:px-14 lg:py-12">
+                <Link href={home()} class="inline-flex items-center gap-3">
                     <img
                         src="/brand/aladdin-crm-logo.svg"
                         alt="Aladdin CRM logo"
-                        class="h-10 w-auto object-contain"
+                        class="h-11 w-auto object-contain"
                         loading="lazy"
                         decoding="async"
                     />
                 </Link>
 
-                <div class="mb-7 space-y-2">
-                    <h1 class="auth-title text-2xl font-semibold tracking-tight">{title}</h1>
-                    <p class="text-sm leading-6 text-slate-600">{description}</p>
-                </div>
+                <div class="space-y-5">
+                    <p class="auth-title text-xs font-semibold tracking-[0.22em] text-amber-200">{currentScene.badge}</p>
+                    <h2 class="auth-title text-3xl leading-tight font-semibold text-white sm:text-4xl">{currentScene.headline}</h2>
+                    <p class="max-w-xl text-sm leading-6 text-violet-100 sm:text-base">{currentScene.summary}</p>
 
-                {@render children?.()}
-
-                <div class="mt-6 grid gap-2 sm:grid-cols-3">
-                    {#each currentScene.highlights as highlight (highlight)}
-                        <div class="rounded-xl border border-sky-100 bg-sky-50 px-3 py-2 text-center text-xs font-medium text-sky-800">
-                            {highlight}
-                        </div>
-                    {/each}
-                </div>
-            </div>
-        </section>
-
-        <aside class="relative hidden items-center lg:flex">
-            <div class="hero-panel relative w-full overflow-hidden rounded-[30px] border border-sky-200/70 bg-[linear-gradient(145deg,#0369a1,#0284c7_45%,#0ea5e9)] p-8 text-white shadow-[0_34px_90px_-36px_rgba(3,105,161,0.7)]">
-                <div class="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-white/18 blur-3xl"></div>
-                <div class="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-cyan-200/20 blur-3xl"></div>
-
-                <div class="relative space-y-4">
-                    <p class="auth-title text-xs font-semibold tracking-[0.24em] text-cyan-100/95">{currentScene.badge}</p>
-                    <h2 class="auth-title text-3xl leading-tight font-semibold text-white">{currentScene.headline}</h2>
-                    <p class="max-w-2xl text-sm leading-6 text-sky-50/95">{currentScene.summary}</p>
-
-                    <div class="scene-board relative mt-6 overflow-hidden rounded-3xl border border-white/25 bg-white/10 p-6 backdrop-blur-sm">
-                        <div class="scene-logo rounded-2xl border border-white/30 bg-white/15 p-4">
-                            <div class="flex items-center justify-between gap-3">
-                                <img
-                                    src="/brand/aladdin-crm-logo.svg"
-                                    alt="Aladdin CRM"
-                                    class="h-14 w-auto object-contain"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                                <div class="flex items-center gap-1.5">
-                                    <span class="status-dot"></span>
-                                    <span class="status-dot"></span>
-                                    <span class="status-dot"></span>
-                                </div>
+                    <div class="grid gap-2 sm:grid-cols-3">
+                        {#each currentScene.highlights as highlight (highlight)}
+                            <div class="rounded-xl border border-violet-300/35 bg-violet-950/40 px-3 py-2 text-center text-xs font-medium text-violet-100">
+                                {highlight}
                             </div>
-                            <p class="mt-2 text-xs text-sky-50/90">Cloud CRM Workbench: Sales, Task, Support, Quote</p>
-                        </div>
+                        {/each}
+                    </div>
 
-                        <div class="mt-3 grid gap-2 sm:grid-cols-3">
-                            {#each currentScene.highlights as highlight (highlight)}
-                                <div class="rounded-xl border border-white/25 bg-sky-950/35 px-3 py-2 text-center text-xs font-semibold text-cyan-50">
-                                    {highlight}
-                                </div>
-                            {/each}
-                        </div>
-
-                        <div class="mt-4 space-y-2 rounded-2xl border border-white/20 bg-sky-950/30 p-3">
-                            <p class="text-xs font-semibold tracking-[0.16em] text-cyan-100">CRM LOGIN FLOW</p>
+                    <div class="mt-2 rounded-2xl border border-violet-300/35 bg-violet-950/35 p-4 sm:p-5">
+                        <p class="mb-3 text-xs font-semibold tracking-[0.16em] text-amber-200">GUVENLI GIRIS AKISI</p>
+                        <div class="space-y-2">
                             {#each currentScene.flow as step, index (step)}
-                                <div class="flow-item flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm text-sky-50">
-                                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/25 text-xs font-semibold text-white">
+                                <div class="flex items-center gap-3 rounded-xl border border-violet-300/30 bg-violet-950/45 px-3 py-2.5 text-sm text-violet-100">
+                                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-300 text-xs font-semibold text-violet-950">
                                         {index + 1}
                                     </span>
                                     <span>{step}</span>
                                 </div>
                             {/each}
                         </div>
-
-                        <p class="mt-4 rounded-2xl border border-white/20 bg-sky-950/35 px-4 py-3 text-sm text-sky-50/95">
-                            Aladdin CRM, Salesforce benzeri kurumsal is akislarini sade bir arayuzde hizli ve izlenebilir hale getirir.
-                        </p>
                     </div>
                 </div>
+
+                <p class="text-xs text-violet-100/70">
+                    Guvenli kimlik dogrulama, rol bazli yetkilendirme ve izlenebilir CRM operasyonlari.
+                </p>
             </div>
-        </aside>
+        </section>
+
+        <section class="relative flex min-h-svh items-center justify-center bg-[#fbf9ff] px-4 py-8 sm:px-8 lg:px-10">
+            <div class="w-full max-w-md rounded-3xl border border-violet-100 bg-white p-6 shadow-[0_18px_50px_-28px_rgba(76,29,149,0.28)] sm:p-8">
+                <Link href={home()} class="mb-6 inline-flex items-center gap-3">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-2xl border border-amber-200 bg-amber-50">
+                        <AppLogoIcon class="size-8" />
+                    </div>
+                    <span class="auth-title text-sm font-semibold tracking-[0.08em] text-violet-700">ALLADDIN CRM</span>
+                </Link>
+
+                <div class="mb-7 space-y-2">
+                    <h1 class="auth-title text-2xl font-semibold tracking-tight text-slate-900">{title}</h1>
+                    <p class="text-sm leading-6 text-slate-600">{description}</p>
+                </div>
+
+                {@render children?.()}
+            </div>
+        </section>
     </div>
 </div>
 
 <style>
     .auth-title {
         font-family: 'Sora', 'Manrope', 'Segoe UI', sans-serif;
-    }
-
-    @keyframes floatSoft {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-7px);
-        }
-    }
-
-    @keyframes pulseDot {
-        0%,
-        100% {
-            opacity: 0.5;
-            transform: scale(1);
-        }
-
-        50% {
-            opacity: 1;
-            transform: scale(1.14);
-        }
-    }
-
-    @keyframes cardSlide {
-        from {
-            opacity: 0;
-            transform: translateX(18px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    .hero-panel {
-        animation: floatSoft 6s ease-in-out infinite;
-    }
-
-    .scene-logo {
-        animation: floatSoft 5.4s ease-in-out infinite;
-    }
-
-    .status-dot {
-        width: 0.52rem;
-        height: 0.52rem;
-        border-radius: 999px;
-        background: #f8fafc;
-        box-shadow: 0 0 0.4rem rgba(255, 255, 255, 0.7);
-        animation: pulseDot 1.8s ease-in-out infinite;
-    }
-
-    .status-dot:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    .status-dot:nth-child(3) {
-        animation-delay: 0.4s;
-    }
-
-    .flow-item {
-        animation: cardSlide 0.55s ease both;
-    }
-
-    .flow-item:nth-child(2) {
-        animation-delay: 0.08s;
-    }
-
-    .flow-item:nth-child(3) {
-        animation-delay: 0.16s;
-    }
-
-    .flow-item:nth-child(4) {
-        animation-delay: 0.24s;
     }
 </style>

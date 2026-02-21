@@ -1,5 +1,10 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import Activity from 'lucide-svelte/icons/activity';
+    import ArrowRight from 'lucide-svelte/icons/arrow-right';
+    import Briefcase from 'lucide-svelte/icons/briefcase';
+    import Headset from 'lucide-svelte/icons/headset';
+    import ListChecks from 'lucide-svelte/icons/list-checks';
     import AppHead from '@/components/AppHead.svelte';
     import AppLayout from '@/layouts/AppLayout.svelte';
     import { apiRequest, ApiError } from '@/lib/api';
@@ -157,6 +162,7 @@
     ];
 
     const opportunityStages = ['lead', 'qualified', 'proposal', 'negotiation', 'won', 'lost'];
+    const openPipelineStages = ['lead', 'qualified', 'proposal', 'negotiation'] as const;
     const quoteStatuses = ['draft', 'sent', 'accepted', 'rejected'];
     const quoteCurrencies = ['TRY', 'USD', 'EUR'];
     const ticketPriorities = ['low', 'medium', 'high', 'urgent'];
@@ -234,6 +240,19 @@
         doing: [],
         done: [],
     });
+
+    let totalTaskCount = $derived(
+        tasksByColumn.todo.length + tasksByColumn.doing.length + tasksByColumn.done.length,
+    );
+    let completedTaskRatio = $derived(
+        totalTaskCount > 0 ? Math.round((tasksByColumn.done.length / totalTaskCount) * 100) : 0,
+    );
+    let activePipelineAmount = $derived(
+        openPipelineStages.reduce((total, stage) => total + stageAmount(stage), 0),
+    );
+    let crmRecordCount = $derived(
+        companies.total + contacts.total + opportunities.total + quotes.total + tickets.total,
+    );
 
     let companyForm = $state({
         id: null as number | null,
@@ -493,6 +512,55 @@
             tax_total: roundMoney(taxTotal),
             grand_total: roundMoney(subtotal - discountTotal + taxTotal),
         };
+    }
+
+    function stageAmount(stage: string): number {
+        return Number(pipelineSummary.stage_distribution?.[stage] ?? 0);
+    }
+
+    function stagePercent(stage: string): number {
+        const total = Object.values(pipelineSummary.stage_distribution ?? {}).reduce(
+            (sum, value) => sum + Number(value ?? 0),
+            0,
+        );
+
+        if (total <= 0) {
+            return 0;
+        }
+
+        return Math.round((stageAmount(stage) / total) * 100);
+    }
+
+    function stageProgressColor(stage: string): string {
+        const colors: Record<string, string> = {
+            lead: '#8b5cf6',
+            qualified: '#a855f7',
+            proposal: '#c084fc',
+            negotiation: '#f59e0b',
+            won: '#22c55e',
+            lost: '#ef4444',
+        };
+
+        return colors[stage] ?? '#8b5cf6';
+    }
+
+    function formatActivityDate(value: string | null): string {
+        if (!value) {
+            return '-';
+        }
+
+        const date = new Date(value);
+
+        if (Number.isNaN(date.getTime())) {
+            return '-';
+        }
+
+        return new Intl.DateTimeFormat('tr-TR', {
+            day: '2-digit',
+            month: 'short',
+            hour: '2-digit',
+            minute: '2-digit',
+        }).format(date);
     }
 
     async function refreshDashboardData(): Promise<void> {
@@ -1313,7 +1381,10 @@
 <AppHead title="CRM Paneli" />
 
 <AppLayout {breadcrumbs}>
-    <div class="space-y-6 p-4 md:p-6">
+    <div class="dashboard-surface relative space-y-6 p-4 md:p-6">
+        <div class="pointer-events-none absolute -top-24 left-16 h-44 w-44 rounded-full bg-violet-200/40 blur-3xl"></div>
+        <div class="pointer-events-none absolute right-10 bottom-10 h-52 w-52 rounded-full bg-amber-200/35 blur-3xl"></div>
+
         {#if notice}
             <div
                 class="rounded-xl border px-4 py-3 text-sm {notice.type === 'success'
@@ -1324,33 +1395,99 @@
             </div>
         {/if}
 
+        <section class="relative overflow-hidden rounded-3xl border border-violet-200/70 bg-[linear-gradient(135deg,#2c1255,#4c1d95_58%,#6d28d9)] px-5 py-6 text-white shadow-[0_28px_65px_-36px_rgba(76,29,149,0.9)] md:px-6 md:py-7">
+            <div class="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-white/10 blur-3xl"></div>
+            <div class="pointer-events-none absolute -bottom-20 -left-16 h-48 w-48 rounded-full bg-amber-300/20 blur-3xl"></div>
+
+            <div class="relative grid gap-6 xl:grid-cols-[1fr_auto] xl:items-center">
+                <div>
+                    <p class="text-xs font-semibold tracking-[0.18em] text-amber-200">ALLADDIN CRM DASHBOARD</p>
+                    <h1 class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Satis ve destek operasyonlari tek panelde</h1>
+                    <p class="mt-3 max-w-3xl text-sm leading-6 text-violet-100">
+                        Pipeline, teklif, gorev ve ticket akislarini anlik takip edin. Tum CRUD modullerine buradan hizli gecis yapabilirsiniz.
+                    </p>
+                    <p class="mt-4 text-xs text-violet-200">
+                        Guncel tarih: {new Intl.DateTimeFormat('tr-TR', { day: '2-digit', month: 'long', year: 'numeric' }).format(new Date())}
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2 xl:justify-end">
+                    <button type="button" class="rounded-full border border-white/30 bg-white/15 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/25" onclick={() => setActiveTab('companies')}>
+                        Company
+                    </button>
+                    <button type="button" class="rounded-full border border-white/30 bg-white/15 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/25" onclick={() => setActiveTab('quotes')}>
+                        Quote PDF
+                    </button>
+                    <button type="button" class="rounded-full border border-white/30 bg-white/15 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/25" onclick={() => setActiveTab('tasks')}>
+                        Task Kanban
+                    </button>
+                    <button type="button" class="inline-flex items-center rounded-full bg-amber-300 px-4 py-2 text-sm font-semibold text-violet-950 transition hover:bg-amber-200" onclick={() => setActiveTab('tickets')}>
+                        Ticket
+                        <ArrowRight class="ml-2 size-4" />
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            <article class="rounded-xl border border-slate-200 bg-white p-4 shadow-xs">
-                <p class="text-xs tracking-wide text-slate-500 uppercase">Bugun Gorev</p>
-                <p class="mt-2 text-3xl font-semibold text-slate-900">{metrics.tasks_due_today}</p>
+            <article class="rounded-2xl border border-violet-100 bg-white/95 p-4 shadow-sm">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <p class="text-xs tracking-wide text-slate-500 uppercase">Bugun Gorev</p>
+                        <p class="mt-2 text-3xl font-semibold text-slate-900">{metrics.tasks_due_today}</p>
+                        <p class="mt-1 text-xs text-slate-500">Tamamlanma: %{completedTaskRatio}</p>
+                    </div>
+                    <div class="rounded-xl border border-violet-200 bg-violet-50 p-2 text-violet-700">
+                        <ListChecks class="size-5" />
+                    </div>
+                </div>
             </article>
-            <article class="rounded-xl border border-slate-200 bg-white p-4 shadow-xs">
-                <p class="text-xs tracking-wide text-slate-500 uppercase">Acik Ticket</p>
-                <p class="mt-2 text-3xl font-semibold text-slate-900">{metrics.open_tickets}</p>
+            <article class="rounded-2xl border border-violet-100 bg-white/95 p-4 shadow-sm">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <p class="text-xs tracking-wide text-slate-500 uppercase">Acik Ticket</p>
+                        <p class="mt-2 text-3xl font-semibold text-slate-900">{metrics.open_tickets}</p>
+                        <p class="mt-1 text-xs text-slate-500">Canli destek talepleri</p>
+                    </div>
+                    <div class="rounded-xl border border-amber-200 bg-amber-50 p-2 text-amber-700">
+                        <Headset class="size-5" />
+                    </div>
+                </div>
             </article>
-            <article class="rounded-xl border border-slate-200 bg-white p-4 shadow-xs">
-                <p class="text-xs tracking-wide text-slate-500 uppercase">Pipeline Toplami</p>
-                <p class="mt-2 text-3xl font-semibold text-slate-900">{formatMoney(metrics.pipeline_total)}</p>
+            <article class="rounded-2xl border border-violet-100 bg-white/95 p-4 shadow-sm">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <p class="text-xs tracking-wide text-slate-500 uppercase">Pipeline Toplami</p>
+                        <p class="mt-2 text-3xl font-semibold text-slate-900">{formatMoney(metrics.pipeline_total)}</p>
+                        <p class="mt-1 text-xs text-slate-500">Aktif asamalar toplami</p>
+                    </div>
+                    <div class="rounded-xl border border-violet-200 bg-violet-50 p-2 text-violet-700">
+                        <Briefcase class="size-5" />
+                    </div>
+                </div>
             </article>
-            <article class="rounded-xl border border-slate-200 bg-white p-4 shadow-xs">
-                <p class="text-xs tracking-wide text-slate-500 uppercase">Toplam Pipeline</p>
-                <p class="mt-2 text-3xl font-semibold text-slate-900">{formatMoney(pipelineSummary.total_pipeline)}</p>
+            <article class="rounded-2xl border border-violet-100 bg-white/95 p-4 shadow-sm">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <p class="text-xs tracking-wide text-slate-500 uppercase">Toplam Pipeline</p>
+                        <p class="mt-2 text-3xl font-semibold text-slate-900">{formatMoney(pipelineSummary.total_pipeline)}</p>
+                        <p class="mt-1 text-xs text-slate-500">Kayit ozeti: {crmRecordCount}</p>
+                    </div>
+                    <div class="rounded-xl border border-violet-200 bg-violet-50 p-2 text-violet-700">
+                        <Activity class="size-5" />
+                    </div>
+                </div>
             </article>
         </section>
 
-        <section class="rounded-xl border border-slate-200 bg-white p-4">
-            <div class="mb-4 flex flex-wrap gap-2">
+        <section class="rounded-3xl border border-violet-100 bg-white/95 p-4 shadow-sm md:p-5">
+            <div class="mb-5 flex flex-wrap gap-2">
                 {#each tabList as tab (tab.key)}
                     <button
                         type="button"
                         class="rounded-full border px-4 py-2 text-sm font-medium transition {activeTab === tab.key
-                            ? 'border-slate-900 bg-slate-900 text-white'
-                            : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-100'}"
+                            ? 'border-violet-700 bg-violet-700 text-white shadow-sm'
+                            : 'border-violet-200 bg-white text-slate-700 hover:border-violet-300 hover:bg-violet-50'}"
                         onclick={() => setActiveTab(tab.key)}
                     >
                         {tab.label}
@@ -1359,39 +1496,93 @@
             </div>
 
             {#if activeTab === 'overview'}
-                <div class="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-                    <div class="rounded-xl border border-slate-200 p-4">
-                        <h2 class="text-lg font-semibold text-slate-900">Stage Dagilimi</h2>
-                        <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="grid gap-4 xl:grid-cols-[1.3fr_0.7fr]">
+                    <article class="rounded-2xl border border-violet-100 bg-white p-4 shadow-sm md:p-5">
+                        <div class="flex flex-wrap items-start justify-between gap-4">
+                            <div>
+                                <p class="text-xs font-semibold tracking-[0.14em] text-violet-700">PIPELINE HEALTH</p>
+                                <h2 class="mt-1 text-lg font-semibold text-slate-900">Satis asama dagilimi</h2>
+                                <p class="mt-1 text-sm text-slate-500">Asama bazli dagilim ve butce yogunlugu</p>
+                            </div>
+                            <div class="rounded-xl border border-violet-100 bg-violet-50 px-3 py-2">
+                                <p class="text-[11px] font-medium text-violet-700 uppercase">Acik Pipeline</p>
+                                <p class="mt-1 text-base font-semibold text-violet-900">{formatMoney(activePipelineAmount)}</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 space-y-3">
                             {#each opportunityStages as stage (stage)}
-                                <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2">
-                                    <p class="text-xs text-slate-500 uppercase">{stageLabel(stage)}</p>
-                                    <p class="mt-1 text-lg font-semibold text-slate-900">
-                                        {formatMoney(pipelineSummary.stage_distribution?.[stage] ?? 0)}
-                                    </p>
+                                <div class="rounded-xl border border-slate-200/80 bg-slate-50/70 px-3 py-3">
+                                    <div class="mb-2 flex items-center justify-between gap-3">
+                                        <p class="text-xs font-semibold tracking-wide text-slate-700 uppercase">{stageLabel(stage)}</p>
+                                        <p class="text-xs font-semibold text-slate-700">{formatMoney(stageAmount(stage))}</p>
+                                    </div>
+                                    <div class="h-2 rounded-full bg-violet-100/70">
+                                        <div
+                                            class="h-2 rounded-full transition-all duration-500"
+                                            style={`width: ${stagePercent(stage)}%; background: ${stageProgressColor(stage)};`}
+                                        ></div>
+                                    </div>
+                                    <p class="mt-1 text-[11px] text-slate-500">Toplam pay: %{stagePercent(stage)}</p>
                                 </div>
                             {/each}
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="rounded-xl border border-slate-200 p-4">
-                        <h2 class="text-lg font-semibold text-slate-900">Son Aktiviteler</h2>
-                        <div class="mt-4 space-y-3">
-                            {#if loading.metrics}
-                                <p class="text-sm text-slate-500">Yukleniyor...</p>
-                            {:else if metrics.recent_activities.length === 0}
-                                <p class="text-sm text-slate-500">Henuz aktivite yok.</p>
-                            {:else}
-                                {#each metrics.recent_activities as activity (activity.id)}
-                                    <article class="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                                        <p class="text-sm font-medium text-slate-900">{activity.description}</p>
-                                        <p class="mt-1 text-xs text-slate-500">
-                                            {activity.user ?? 'Sistem'} - {activity.action}
-                                        </p>
-                                    </article>
-                                {/each}
-                            {/if}
-                        </div>
+                    <div class="space-y-4">
+                        <article class="rounded-2xl border border-violet-100 bg-white p-4 shadow-sm md:p-5">
+                            <p class="text-xs font-semibold tracking-[0.14em] text-violet-700">OPERASYON OZETI</p>
+                            <h3 class="mt-1 text-base font-semibold text-slate-900">Kayit dagilimi</h3>
+                            <div class="mt-4 grid grid-cols-2 gap-3">
+                                <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                                    <p class="text-[11px] text-slate-500 uppercase">Company</p>
+                                    <p class="mt-1 text-lg font-semibold text-slate-900">{companies.total}</p>
+                                </div>
+                                <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                                    <p class="text-[11px] text-slate-500 uppercase">Contact</p>
+                                    <p class="mt-1 text-lg font-semibold text-slate-900">{contacts.total}</p>
+                                </div>
+                                <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                                    <p class="text-[11px] text-slate-500 uppercase">Quote</p>
+                                    <p class="mt-1 text-lg font-semibold text-slate-900">{quotes.total}</p>
+                                </div>
+                                <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                                    <p class="text-[11px] text-slate-500 uppercase">Ticket</p>
+                                    <p class="mt-1 text-lg font-semibold text-slate-900">{tickets.total}</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 rounded-xl border border-violet-100 bg-violet-50 px-3 py-2">
+                                <p class="text-xs text-violet-700">Tamamlanan task orani</p>
+                                <p class="text-lg font-semibold text-violet-900">%{completedTaskRatio}</p>
+                            </div>
+                        </article>
+
+                        <article class="rounded-2xl border border-violet-100 bg-white p-4 shadow-sm md:p-5">
+                            <div class="flex items-center justify-between gap-3">
+                                <h3 class="text-base font-semibold text-slate-900">Son aktiviteler</h3>
+                                <div class="rounded-lg border border-violet-100 bg-violet-50 p-1.5 text-violet-700">
+                                    <Activity class="size-4" />
+                                </div>
+                            </div>
+
+                            <div class="mt-4 space-y-3">
+                                {#if loading.metrics}
+                                    <p class="text-sm text-slate-500">Yukleniyor...</p>
+                                {:else if metrics.recent_activities.length === 0}
+                                    <p class="text-sm text-slate-500">Henuz aktivite yok.</p>
+                                {:else}
+                                    {#each metrics.recent_activities as activity (activity.id)}
+                                        <article class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                                            <p class="text-sm font-medium text-slate-900">{activity.description}</p>
+                                            <p class="mt-1 text-xs text-slate-500">
+                                                {activity.user ?? 'Sistem'} - {activity.action}
+                                            </p>
+                                            <p class="mt-1 text-[11px] text-slate-400">{formatActivityDate(activity.created_at)}</p>
+                                        </article>
+                                    {/each}
+                                {/if}
+                            </div>
+                        </article>
                     </div>
                 </div>
             {/if}
@@ -2129,3 +2320,11 @@
         </section>
     </div>
 </AppLayout>
+
+<style>
+    .dashboard-surface {
+        background:
+            radial-gradient(circle at 10% 0%, rgba(167, 139, 250, 0.1), transparent 38%),
+            radial-gradient(circle at 96% 100%, rgba(245, 197, 66, 0.1), transparent 42%);
+    }
+</style>

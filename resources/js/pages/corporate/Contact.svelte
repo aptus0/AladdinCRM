@@ -15,7 +15,7 @@
     <section class="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6">
         <div class="grid gap-6 lg:grid-cols-2">
             <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <p class="text-xs font-semibold tracking-[0.14em] text-cyan-700">ILETISIM</p>
+                <p class="text-xs font-semibold tracking-[0.14em] text-violet-700">ILETISIM</p>
                 <h1 class="mt-3 text-3xl leading-tight font-semibold tracking-tight text-slate-900 sm:text-4xl">
                     Kurumsal ekibimizle iletisime gecin
                 </h1>

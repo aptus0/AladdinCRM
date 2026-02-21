@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Alladdin CRM dashboard with real metrics">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f3ff"/>
+      <stop offset="1" stop-color="#fff8e8"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#25144a"/>
+      <stop offset="1" stop-color="#3b1f6f"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fbf8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="760" rx="26" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1152" height="712" rx="20" fill="#ffffff" stroke="#e8dafd"/>
+
+  <rect x="24" y="24" width="1152" height="56" rx="20" fill="#f8f2ff"/>
+  <circle cx="58" cy="52" r="7" fill="#fd5f57"/>
+  <circle cx="82" cy="52" r="7" fill="#febc2e"/>
+  <circle cx="106" cy="52" r="7" fill="#28c840"/>
+  <text x="152" y="57" fill="#4a2a7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Alladdin CRM Dashboard</text>
+  <text x="1090" y="57" text-anchor="end" fill="#6b578d" font-family="Inter, Arial, sans-serif" font-size="12">21 Feb 2026 | Admin</text>
+
+  <rect x="46" y="102" width="228" height="614" rx="16" fill="url(#side)"/>
+  <text x="72" y="142" fill="#f5c542" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Alladdin CRM</text>
+  <text x="72" y="174" fill="#ede4ff" font-family="Inter, Arial, sans-serif" font-size="12">Genel Bakis</text>
+  <text x="72" y="202" fill="#c8b6ef" font-family="Inter, Arial, sans-serif" font-size="12">Company &amp; Contact</text>
+  <text x="72" y="230" fill="#c8b6ef" font-family="Inter, Arial, sans-serif" font-size="12">Opportunities</text>
+  <text x="72" y="258" fill="#c8b6ef" font-family="Inter, Arial, sans-serif" font-size="12">Quotes &amp; PDF</text>
+  <text x="72" y="286" fill="#c8b6ef" font-family="Inter, Arial, sans-serif" font-size="12">Tasks (Kanban)</text>
+  <text x="72" y="314" fill="#c8b6ef" font-family="Inter, Arial, sans-serif" font-size="12">Tickets</text>
+
+  <rect x="296" y="102" width="858" height="108" rx="16" fill="url(#card)" stroke="#eadffc"/>
+  <text x="324" y="140" fill="#3d2568" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Bugunku Operasyon Ozeti</text>
+  <text x="324" y="164" fill="#7a659f" font-family="Inter, Arial, sans-serif" font-size="12">Pipeline, gorev ve destek metrikleri tek panelde</text>
+
+  <rect x="296" y="228" width="202" height="128" rx="14" fill="#ffffff" stroke="#e9defb"/>
+  <rect x="516" y="228" width="202" height="128" rx="14" fill="#ffffff" stroke="#e9defb"/>
+  <rect x="736" y="228" width="202" height="128" rx="14" fill="#ffffff" stroke="#e9defb"/>
+  <rect x="956" y="228" width="198" height="128" rx="14" fill="#ffffff" stroke="#e9defb"/>
+
+  <text x="320" y="262" fill="#6f5a95" font-family="Inter, Arial, sans-serif" font-size="11">Aktif Company</text>
+  <text x="320" y="300" fill="#2f1d52" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">124</text>
+  <text x="320" y="324" fill="#1f8f54" font-family="Inter, Arial, sans-serif" font-size="11">+12 bu ay</text>
+
+  <text x="540" y="262" fill="#6f5a95" font-family="Inter, Arial, sans-serif" font-size="11">Acik Opportunity</text>
+  <text x="540" y="300" fill="#2f1d52" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">38</text>
+  <text x="540" y="324" fill="#1f8f54" font-family="Inter, Arial, sans-serif" font-size="11">TRY 3.2M toplam</text>
+
+  <text x="760" y="262" fill="#6f5a95" font-family="Inter, Arial, sans-serif" font-size="11">Bugun Gorev</text>
+  <text x="760" y="300" fill="#2f1d52" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">11</text>
+  <text x="760" y="324" fill="#a0651d" font-family="Inter, Arial, sans-serif" font-size="11">4 kritik termin</text>
+
+  <text x="978" y="262" fill="#6f5a95" font-family="Inter, Arial, sans-serif" font-size="11">Acik Ticket</text>
+  <text x="978" y="300" fill="#2f1d52" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">9</text>
+  <text x="978" y="324" fill="#1f8f54" font-family="Inter, Arial, sans-serif" font-size="11">SLA %97</text>
+
+  <rect x="296" y="374" width="568" height="342" rx="16" fill="#ffffff" stroke="#e9defb"/>
+  <text x="324" y="408" fill="#3d2568" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Pipeline Dagilimi</text>
+  <text x="324" y="428" fill="#7a659f" font-family="Inter, Arial, sans-serif" font-size="11">Lead -> Qualified -> Proposal -> Negotiation -> Won/Lost</text>
+
+  <rect x="324" y="458" width="96" height="180" rx="10" fill="#f3ecff"/>
+  <rect x="438" y="498" width="96" height="140" rx="10" fill="#eadcff"/>
+  <rect x="552" y="520" width="96" height="118" rx="10" fill="#e0ceff"/>
+  <rect x="666" y="544" width="96" height="94" rx="10" fill="#d6c2ff"/>
+  <rect x="780" y="568" width="64" height="70" rx="10" fill="#f5c542"/>
+
+  <text x="372" y="654" text-anchor="middle" fill="#5e497f" font-family="Inter, Arial, sans-serif" font-size="10">Lead</text>
+  <text x="486" y="654" text-anchor="middle" fill="#5e497f" font-family="Inter, Arial, sans-serif" font-size="10">Qualified</text>
+  <text x="600" y="654" text-anchor="middle" fill="#5e497f" font-family="Inter, Arial, sans-serif" font-size="10">Proposal</text>
+  <text x="714" y="654" text-anchor="middle" fill="#5e497f" font-family="Inter, Arial, sans-serif" font-size="10">Negotiation</text>
+  <text x="812" y="654" text-anchor="middle" fill="#5e497f" font-family="Inter, Arial, sans-serif" font-size="10">Won</text>
+
+  <rect x="882" y="374" width="272" height="342" rx="16" fill="#ffffff" stroke="#e9defb"/>
+  <text x="908" y="408" fill="#3d2568" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Son Aktiviteler</text>
+
+  <rect x="908" y="430" width="220" height="52" rx="10" fill="#f9f4ff"/>
+  <text x="922" y="452" fill="#462d76" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Quote #Q-2026-018 guncellendi</text>
+  <text x="922" y="469" fill="#7a659f" font-family="Inter, Arial, sans-serif" font-size="10">Artemis Ajans | 5 dk once</text>
+
+  <rect x="908" y="492" width="220" height="52" rx="10" fill="#f9f4ff"/>
+  <text x="922" y="514" fill="#462d76" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Ticket #T-233 cevaplandi</text>
+  <text x="922" y="531" fill="#7a659f" font-family="Inter, Arial, sans-serif" font-size="10">SLA: 16 dk | Staff</text>
+
+  <rect x="908" y="554" width="220" height="52" rx="10" fill="#f9f4ff"/>
+  <text x="922" y="576" fill="#462d76" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Task "Onboarding mail" tamamlandi</text>
+  <text x="922" y="593" fill="#7a659f" font-family="Inter, Arial, sans-serif" font-size="10">Bugun 14:20</text>
+</svg>

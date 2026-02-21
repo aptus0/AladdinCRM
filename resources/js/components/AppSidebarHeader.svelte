@@ -55,7 +55,7 @@
 </script>
 
 <header
-    class="shrink-0 border-b border-sidebar-border/70 px-6 py-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:py-1 md:px-4"
+    class="shrink-0 border-b border-sidebar-border/70 bg-background/85 px-6 py-2.5 backdrop-blur-sm transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:py-1.5 md:px-4"
 >
     <div class="flex w-full flex-col gap-2">
         <div class="flex min-h-10 items-center gap-2">
@@ -75,8 +75,8 @@
                                 : dashboard({ query: { tab: item.tab } }),
                         )}
                         class="inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition {currentTab === item.tab
-                            ? 'border-slate-900 bg-slate-900 text-white'
-                            : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-100'}"
+                            ? 'border-violet-400/80 bg-[linear-gradient(135deg,rgba(96,58,181,0.95),rgba(140,88,221,0.92))] text-white shadow-[0_14px_30px_-22px_rgba(73,41,140,0.9)]'
+                            : 'border-sidebar-border/80 bg-white/85 text-slate-700 hover:border-violet-300/60 hover:bg-violet-50 dark:border-sidebar-border dark:bg-sidebar/65 dark:text-sidebar-foreground dark:hover:bg-sidebar-accent/50'}"
                     >
                         <item.icon class="size-3.5" />
                         <span>{item.label}</span>

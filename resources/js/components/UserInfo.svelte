@@ -24,8 +24,8 @@
 </Avatar>
 
 <div class="grid flex-1 text-left text-sm leading-tight">
-    <span class="truncate font-medium">{user.name}</span>
+    <span class="truncate font-medium group-data-[collapsible=icon]:hidden">{user.name}</span>
     {#if showEmail}
-        <span class="truncate text-xs text-muted-foreground">{user.email}</span>
+        <span class="truncate text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">{user.email}</span>
     {/if}
 </div>
