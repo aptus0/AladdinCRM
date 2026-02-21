@@ -61,9 +61,9 @@ class TaskController extends Controller
             ...$request->validated(),
             'created_by' => $request->user()->id,
             'status' => $request->input('status', TaskStatus::Todo->value),
-            'sort_order' => Task::query()
+            'sort_order' => ((int) Task::query()
                 ->where('status', $request->input('status', TaskStatus::Todo->value))
-                ->max('sort_order') + 1,
+                ->max('sort_order')) + 1,
         ]);
 
         return response()->json($task->load(['assignee:id,name', 'company:id,name']), 201);
