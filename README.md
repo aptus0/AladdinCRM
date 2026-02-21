@@ -5,7 +5,16 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/aptus0/AladdinCRM/actions/workflows/lint.yml"><img src="https://github.com/aptus0/AladdinCRM/actions/workflows/lint.yml/badge.svg?branch=main" alt="Linter"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/actions/workflows/tests.yml"><img src="https://github.com/aptus0/AladdinCRM/actions/workflows/tests.yml/badge.svg?branch=main" alt="Tests"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/actions/workflows/release.yml"><img src="https://github.com/aptus0/AladdinCRM/actions/workflows/release.yml/badge.svg" alt="Release"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/releases"><img src="https://img.shields.io/github/v/release/aptus0/AladdinCRM?sort=semver" alt="Latest Release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/issues"><img src="https://img.shields.io/github/issues/aptus0/AladdinCRM" alt="Issues"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/pulls"><img src="https://img.shields.io/github/issues-pr/aptus0/AladdinCRM" alt="Pull Requests"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/labels/good%20first%20issue"><img src="https://img.shields.io/github/issues/aptus0/AladdinCRM/good%20first%20issue" alt="Good First Issues"></a>
+  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-orange.svg" alt="Contributions Welcome"></a>
+  <a href="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
   <img src="https://img.shields.io/badge/PHP-8.2%2B-777bb4.svg" alt="PHP">
   <img src="https://img.shields.io/badge/Laravel-12-ff2d20.svg" alt="Laravel">
   <img src="https://img.shields.io/badge/Svelte-5-ff3e00.svg" alt="Svelte">
@@ -223,6 +232,8 @@ Details: [`docs/open-source-model.md`](docs/open-source-model.md)
 - Use conventional commits (`feat:`, `fix:`, `refactor:`, `docs:`, `test:`, `chore:`)
 - Keep controllers thin, business logic in service/action layer
 - Add tests for behavior changes
+- Read the full guide: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- Open issue templates: [Bug](.github/ISSUE_TEMPLATE/bug-report.yml), [Feature](.github/ISSUE_TEMPLATE/feature-request.yml), [Task](.github/ISSUE_TEMPLATE/task.yml)
 
 ## License
 

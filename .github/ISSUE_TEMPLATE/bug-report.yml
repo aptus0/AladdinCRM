@@ -1,0 +1,53 @@
+name: Bug Report
+description: Uygulamadaki bir hatayi raporlayin
+title: "[Bug]: "
+labels: ["bug"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tesekkurler. Lutfen bug raporunu olabildigince net doldurun.
+  - type: input
+    id: summary
+    attributes:
+      label: Kisa Ozet
+      description: Hatanin kisa tanimi
+      placeholder: Dashboard acilisinda ticket listesi yuklenmiyor
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Tekrarlama Adimlari
+      description: Hatayi olusturmak icin gerekli adimlar
+      placeholder: |
+        1. Dashboard'a git
+        2. Tickets tabini ac
+        3. Konsolda hata gor
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Beklenen Davranis
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Gerceklesen Davranis
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Ortam
+      description: OS / PHP / Node / Browser
+      placeholder: macOS 15, PHP 8.5, Node 22, Chrome 133
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log / Ekran Goruntusu
+      description: Mumkunse stack trace veya screenshot ekleyin
+      render: shell
