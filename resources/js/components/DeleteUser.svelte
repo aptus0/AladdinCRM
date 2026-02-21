@@ -19,15 +19,15 @@
 </script>
 
 <div class="space-y-6">
-    <Heading variant="small" title="Delete account" description="Delete your account and all of its resources" />
+    <Heading variant="small" title="Hesabi sil" description="Hesabinizi ve bagli tum verileri kalici olarak silin" />
     <div class="space-y-4 rounded-lg border border-red-100 bg-red-50 p-4 dark:border-red-200/10 dark:bg-red-700/10">
         <div class="relative space-y-0.5 text-red-600 dark:text-red-100">
-            <p class="font-medium">Warning</p>
-            <p class="text-sm">Please proceed with caution, this cannot be undone.</p>
+            <p class="font-medium">Dikkat</p>
+            <p class="text-sm">Bu islem geri alinamaz. Lutfen dikkatli ilerleyin.</p>
         </div>
         <Dialog>
             <DialogTrigger>
-                <Button variant="destructive" data-test="delete-user-button">Delete account</Button>
+                <Button variant="destructive" data-test="delete-user-button">Hesabi sil</Button>
             </DialogTrigger>
             <DialogContent>
                 <Form
@@ -37,20 +37,20 @@
                 >
                     {#snippet children({ errors, processing })}
                         <div class="space-y-3">
-                            <DialogTitle>Are you sure you want to delete your account?</DialogTitle>
+                            <DialogTitle>Hesabinizi silmek istediginizden emin misiniz?</DialogTitle>
                             <DialogDescription>
-                                Once your account is deleted, all of its resources and data will also be permanently deleted.
-                                Please enter your password to confirm you would like to permanently delete your account.
+                                Hesabiniz silindiginde bagli tum kaynaklar ve veriler de kalici olarak silinir. Kalici
+                                silme islemini onaylamak icin lutfen sifrenizi girin.
                             </DialogDescription>
                         </div>
 
                         <div class="grid gap-2">
-                            <Label for="password" class="sr-only">Password</Label>
+                            <Label for="password" class="sr-only">Sifre</Label>
                             <Input
                                 id="password"
                                 type="password"
                                 name="password"
-                                placeholder="Password"
+                                placeholder="Sifrenizi girin"
                             />
                             <InputError message={errors.password} />
                         </div>
@@ -58,7 +58,7 @@
                         <DialogFooter class="gap-2">
                             <DialogClose>
                                 <Button variant="secondary">
-                                    Cancel
+                                    Vazgec
                                 </Button>
                             </DialogClose>
 
@@ -68,7 +68,7 @@
                                 disabled={processing}
                                 data-test="confirm-delete-user-button"
                             >
-                                Delete account
+                                Hesabi kalici sil
                             </Button>
                         </DialogFooter>
                     {/snippet}

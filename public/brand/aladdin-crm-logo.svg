@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" role="img" aria-labelledby="title desc">
+    <title id="title">Aladdin CRM Logo</title>
+    <desc id="desc">Aladdin CRM kurumsal logo</desc>
+    <defs>
+        <linearGradient id="ink" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1d4ed8" />
+            <stop offset="65%" stop-color="#312e81" />
+            <stop offset="100%" stop-color="#1e1b4b" />
+        </linearGradient>
+        <linearGradient id="magic" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8" />
+            <stop offset="50%" stop-color="#6366f1" />
+            <stop offset="100%" stop-color="#a855f7" />
+        </linearGradient>
+        <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fef08a" />
+            <stop offset="45%" stop-color="#f59e0b" />
+            <stop offset="100%" stop-color="#b45309" />
+        </linearGradient>
+        <linearGradient id="plate" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#312e81" />
+            <stop offset="50%" stop-color="#4338ca" />
+            <stop offset="100%" stop-color="#1e1b4b" />
+        </linearGradient>
+        <filter id="soft" x="-20%" y="-40%" width="140%" height="180%">
+            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1e1b4b" flood-opacity=".25" />
+        </filter>
+    </defs>
+
+    <g filter="url(#soft)">
+        <path
+            d="M238 96C286 28 397 21 455 44c34 14 53 35 48 54-7 27-55 35-120 34-63-1-123 9-166 42l-36-34c14-14 33-28 56-44z"
+            fill="url(#magic)"
+        />
+
+        <g transform="translate(112 84)">
+            <ellipse cx="76" cy="98" rx="74" ry="15" fill="#4c1d95" opacity=".28" />
+            <path d="M28 70c18-24 102-24 120 0-34 10-85 14-120 0z" fill="url(#gold)" />
+            <path d="M34 70c9 22 21 42 54 42s45-20 54-42c-34 10-74 10-108 0z" fill="url(#gold)" />
+            <path d="M70 52h36l-3-20h-30z" fill="#facc15" />
+            <ellipse cx="88" cy="28" rx="12" ry="9" fill="#fbbf24" />
+            <circle cx="88" cy="14" r="8" fill="#f59e0b" />
+            <path d="M20 74c-18 0-24-7-24-16 0-12 12-24 30-24 12 0 20 7 20 14 0 6-5 10-12 10-6 0-10-4-10-8 0-2 1-4 3-6-7 0-12 4-12 10 0 5 4 9 13 10 4 0 8 4 8 10z" fill="url(#gold)" />
+            <path d="M145 72c10 0 17-4 17-11 0-7-7-13-19-15l6-9c16 2 28 12 28 24 0 11-10 19-24 21z" fill="#f59e0b" opacity=".8" />
+        </g>
+
+        <text x="280" y="170" fill="url(#ink)" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="128" font-style="italic" font-weight="700">Aladdin</text>
+
+        <path d="M292 188h470c-24 29-112 50-235 50s-211-21-235-50z" fill="url(#plate)" />
+        <text x="527" y="226" text-anchor="middle" fill="#e0f2fe" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="64" font-weight="800" letter-spacing="10">CRM</text>
+
+        <g fill="#e0f2fe" opacity=".95">
+            <circle cx="352" cy="90" r="3" />
+            <circle cx="392" cy="74" r="2.6" />
+            <circle cx="436" cy="86" r="3.2" />
+            <circle cx="470" cy="68" r="2.8" />
+            <circle cx="508" cy="82" r="2.4" />
+        </g>
+        <text x="403" y="101" fill="#ffffff" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="38" font-weight="700" letter-spacing="4">&lt;/&gt; { }</text>
+    </g>
+</svg>

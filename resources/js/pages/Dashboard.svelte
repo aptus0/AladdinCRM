@@ -7,13 +7,13 @@
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: 'Dashboard',
+            title: 'Panel',
             href: dashboard().url,
         },
     ];
 </script>
 
-<AppHead title="Dashboard" />
+<AppHead title="Panel" />
 
 <AppLayout {breadcrumbs}>
     <div class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">

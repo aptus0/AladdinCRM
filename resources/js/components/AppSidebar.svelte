@@ -29,7 +29,7 @@
 
     const mainNavItems: NavItem[] = [
         {
-            title: 'Dashboard',
+            title: 'Panel',
             href: dashboard(),
             icon: LayoutGrid,
         },
@@ -37,12 +37,12 @@
 
     const footerNavItems: NavItem[] = [
         {
-            title: 'Github Repo',
+            title: 'Github Deposu',
             href: 'https://github.com/laravel/svelte-starter-kit',
             icon: Folder,
         },
         {
-            title: 'Documentation',
+            title: 'Dokumantasyon',
             href: 'https://laravel.com/docs/starter-kits#svelte',
             icon: BookOpen,
         },

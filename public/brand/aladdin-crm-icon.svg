@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+    <title id="title">Aladdin CRM Icon</title>
+    <desc id="desc">Aladdin CRM uygulama ikonu</desc>
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1d4ed8" />
+            <stop offset="55%" stop-color="#4338ca" />
+            <stop offset="100%" stop-color="#4c1d95" />
+        </linearGradient>
+        <linearGradient id="halo" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8" />
+            <stop offset="100%" stop-color="#e879f9" />
+        </linearGradient>
+        <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fef08a" />
+            <stop offset="45%" stop-color="#f59e0b" />
+            <stop offset="100%" stop-color="#b45309" />
+        </linearGradient>
+    </defs>
+
+    <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" />
+    <path d="M50 80c38-46 124-46 154-7 7 9 7 20 2 28-11 17-43 21-83 20-36-1-66 6-90 26l-9-13c10-20 17-38 26-54z" fill="url(#halo)" opacity=".95" />
+    <text x="78" y="94" fill="#f8fafc" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="34" font-weight="700">&lt;/&gt;</text>
+    <text x="170" y="94" fill="#f8fafc" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="34" font-weight="700">{ }</text>
+
+    <g transform="translate(54 112)">
+        <ellipse cx="74" cy="78" rx="68" ry="14" fill="#0f172a" opacity=".3" />
+        <path d="M28 52c19-22 101-22 120 0-35 9-84 13-120 0z" fill="url(#gold)" />
+        <path d="M34 52c8 22 19 42 54 42 34 0 46-20 54-42-34 9-74 9-108 0z" fill="url(#gold)" />
+        <path d="M58 36h34l-3-18h-28z" fill="#facc15" />
+        <ellipse cx="75" cy="16" rx="11" ry="8" fill="#fbbf24" />
+        <circle cx="75" cy="5" r="7" fill="#f59e0b" />
+        <path d="M18 55c-16 0-22-6-22-14 0-11 11-22 27-22 11 0 18 6 18 13 0 6-5 10-11 10s-10-3-10-8c0-2 1-4 3-5-6 0-11 4-11 9s4 8 12 9c4 0 7 4 7 8z" fill="url(#gold)" />
+    </g>
+
+    <g fill="#f8fafc" opacity=".9">
+        <circle cx="38" cy="44" r="2.4" />
+        <circle cx="210" cy="50" r="2.4" />
+        <circle cx="38" cy="214" r="2.4" />
+        <circle cx="213" cy="212" r="2.4" />
+        <circle cx="195" cy="170" r="2.8" />
+        <circle cx="66" cy="170" r="2.6" />
+    </g>
+</svg>

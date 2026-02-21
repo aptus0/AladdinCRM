@@ -41,26 +41,26 @@
     const modalConfig: TwoFactorConfigContent = $derived.by(() => {
         if (twoFactorEnabled) {
             return {
-                title: 'Two-Factor Authentication Enabled',
+                title: 'Iki asamali dogrulama etkin',
                 description:
-                    'Two-factor authentication is now enabled. Scan the QR code or enter the setup key in your authenticator app.',
-                buttonText: 'Close',
+                    'Iki asamali dogrulama etkinlestirildi. QR kodu okutun veya uygulamaniza kurulum anahtarini girin.',
+                buttonText: 'Kapat',
             };
         }
 
         if (showVerificationStep) {
             return {
-                title: 'Verify Authentication Code',
-                description: 'Enter the 6-digit code from your authenticator app',
-                buttonText: 'Continue',
+                title: 'Dogrulama kodunu onayla',
+                description: 'Kimlik dogrulama uygulamanizdaki 6 haneli kodu girin',
+                buttonText: 'Devam et',
             };
         }
 
         return {
-            title: 'Enable Two-Factor Authentication',
+            title: 'Iki asamali dogrulamayi etkinlestir',
             description:
-                'To finish enabling two-factor authentication, scan the QR code or enter the setup key in your authenticator app',
-            buttonText: 'Continue',
+                'Etkinlestirmeyi tamamlamak icin QR kodu okutun veya kurulum anahtarini kimlik dogrulama uygulamaniza girin',
+            buttonText: 'Devam et',
         };
     });
 
@@ -162,7 +162,7 @@
                                     >
                                         <img
                                             src={qrCodeDataUrl}
-                                            alt="Two-factor authentication QR code"
+                                            alt="Iki asamali dogrulama QR kodu"
                                             class="size-full"
                                         />
                                     </div>
@@ -179,7 +179,7 @@
 
                     <div class="relative flex w-full items-center justify-center">
                         <div class="absolute inset-0 top-1/2 h-px w-full bg-border"></div>
-                        <span class="relative bg-card px-2 py-1">or, enter the code manually</span>
+                        <span class="relative bg-card px-2 py-1">veya kodu manuel girin</span>
                     </div>
 
                     <div class="flex w-full items-center justify-center space-x-2">
@@ -245,14 +245,14 @@
                                     onclick={() => (showVerificationStep = false)}
                                     disabled={processing}
                                 >
-                                    Back
+                                    Geri
                                 </Button>
                                 <Button
                                     type="submit"
                                     class="w-auto flex-1"
                                     disabled={processing || code.length < 6}
                                 >
-                                    Confirm
+                                    Onayla
                                 </Button>
                             </div>
                         </div>

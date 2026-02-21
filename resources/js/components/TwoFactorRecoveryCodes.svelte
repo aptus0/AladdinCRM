@@ -38,10 +38,11 @@
 <Card class="w-full">
     <CardHeader>
         <CardTitle class="flex gap-3">
-            <LockKeyhole class="size-4" />2FA Recovery Codes
+            <LockKeyhole class="size-4" />2FA Kurtarma Kodlari
         </CardTitle>
         <CardDescription>
-            Recovery codes let you regain access if you lose your 2FA device. Store them in a secure password manager.
+            Iki asamali dogrulama cihazinizi kaybederseniz bu kodlarla hesabiniza tekrar erisebilirsiniz. Kodlari guvenli
+            bir parola yoneticisinde saklayin.
         </CardDescription>
     </CardHeader>
     <CardContent>
@@ -52,7 +53,7 @@
                 {:else}
                     <Eye class="size-4" />
                 {/if}
-                {isRecoveryCodesVisible ? 'Hide' : 'View'} Recovery Codes
+                Kurtarma kodlarini {isRecoveryCodesVisible ? 'gizle' : 'goster'}
             </Button>
 
             {#if isRecoveryCodesVisible && twoFactorAuth.state.recoveryCodesList.length}
@@ -63,7 +64,7 @@
                 >
                     {#snippet children({ processing })}
                         <Button variant="secondary" type="submit" disabled={processing}>
-                            <RefreshCw class="size-4" /> Regenerate Codes
+                            <RefreshCw class="size-4" /> Kodlari yenile
                         </Button>
                     {/snippet}
                 </Form>
@@ -97,8 +98,8 @@
                         {/if}
                     </div>
                     <p class="text-xs text-muted-foreground select-none">
-                        Each recovery code can be used once to access your account and will be removed after use. If you
-                        need more, click <span class="font-bold">Regenerate Codes</span> above.
+                        Her kurtarma kodu hesabiniza bir kez erisim saglar ve kullanildiktan sonra kaldirilir. Daha fazla
+                        koda ihtiyaciniz olursa yukaridan <span class="font-bold">Kodlari yenile</span> secenegini kullanin.
                     </p>
                 </div>
             {/if}

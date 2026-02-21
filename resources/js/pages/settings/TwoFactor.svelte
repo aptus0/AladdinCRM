@@ -25,7 +25,7 @@
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: 'Two-Factor Authentication',
+            title: 'Iki asamali dogrulama',
             href: show.url(),
         },
     ];
@@ -38,32 +38,32 @@
     });
 </script>
 
-<AppHead title="Two-Factor Authentication" />
+<AppHead title="Iki asamali dogrulama" />
 
 <AppLayout breadcrumbs={breadcrumbs}>
-    <h1 class="sr-only">Two-Factor Authentication Settings</h1>
+    <h1 class="sr-only">Iki asamali dogrulama ayarlari</h1>
 
     <SettingsLayout>
         <div class="space-y-6">
             <Heading
                 variant="small"
-                title="Two-Factor Authentication"
-                description="Manage your two-factor authentication settings"
+                title="Iki asamali dogrulama"
+                description="Hesabinizin iki asamali dogrulama ayarlarini yonetin"
             />
 
             {#if !twoFactorEnabled}
                 <div class="flex flex-col items-start justify-start space-y-4">
-                    <Badge variant="destructive">Disabled</Badge>
+                    <Badge variant="destructive">Kapali</Badge>
 
                     <p class="text-muted-foreground">
-                        When you enable two-factor authentication, you will be prompted for a secure pin during login. This
-                        pin can be retrieved from a TOTP-supported application on your phone.
+                        Iki asamali dogrulamayi etkinlestirdiginizde, giris sirasinda telefonunuzdaki TOTP uyumlu
+                        uygulamadan alacaginiz kod istenir.
                     </p>
 
                     <div>
                         {#if twoFactorAuth.hasSetupData()}
                             <Button onclick={() => (showSetupModal = true)}>
-                                <ShieldCheck class="size-4" />Continue Setup
+                                <ShieldCheck class="size-4" />Kuruluma devam et
                             </Button>
                         {:else}
                             <Form
@@ -72,7 +72,7 @@
                             >
                                 {#snippet children({ processing })}
                                     <Button type="submit" disabled={processing}>
-                                        <ShieldCheck class="size-4" />Enable 2FA
+                                        <ShieldCheck class="size-4" />2FA'yi etkinlestir
                                     </Button>
                                 {/snippet}
                             </Form>
@@ -81,11 +81,11 @@
                 </div>
             {:else}
                 <div class="flex flex-col items-start justify-start space-y-4">
-                    <Badge variant="default">Enabled</Badge>
+                    <Badge variant="default">Etkin</Badge>
 
                     <p class="text-muted-foreground">
-                        With two-factor authentication enabled, you will be prompted for a secure, random pin during login,
-                        which you can retrieve from the TOTP-supported application on your phone.
+                        Iki asamali dogrulama etkin oldugunda, giris sirasinda telefonunuzdaki TOTP uygulamasindan
+                        uretilen guvenli kodu girmeniz gerekir.
                     </p>
 
                     <TwoFactorRecoveryCodes />
@@ -95,7 +95,7 @@
                             {#snippet children({ processing })}
                                 <Button variant="destructive" type="submit" disabled={processing}>
                                     <ShieldBan class="size-4" />
-                                    Disable 2FA
+                                    2FA'yi kapat
                                 </Button>
                             {/snippet}
                         </Form>

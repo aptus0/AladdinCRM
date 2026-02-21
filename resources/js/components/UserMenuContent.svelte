@@ -39,7 +39,7 @@
         {#snippet children(props)}
             <Link class={props.class} href={toUrl(edit())} prefetch onclick={props.onClick}>
                 <Settings class="mr-2 h-4 w-4" />
-                Settings
+                Ayarlar
             </Link>
         {/snippet}
     </DropdownMenuItem>
@@ -55,7 +55,7 @@
             data-test="logout-button"
         >
             <LogOut class="mr-2 h-4 w-4" />
-            Log out
+            Cikis yap
         </Link>
     {/snippet}
 </DropdownMenuItem>

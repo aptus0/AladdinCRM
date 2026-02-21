@@ -9,20 +9,20 @@
 
     const breadcrumbItems: BreadcrumbItem[] = [
         {
-            title: 'Appearance settings',
+            title: 'Gorunum ayarlari',
             href: editAppearance().url,
         },
     ];
 </script>
 
-<AppHead title="Appearance settings" />
+<AppHead title="Gorunum ayarlari" />
 
 <AppLayout breadcrumbs={breadcrumbItems}>
-    <h1 class="sr-only">Appearance Settings</h1>
+    <h1 class="sr-only">Gorunum ayarlari</h1>
 
     <SettingsLayout>
         <div class="space-y-6">
-            <Heading variant="small" title="Appearance settings" description="Update your account's appearance settings" />
+            <Heading variant="small" title="Gorunum ayarlari" description="Hesabinizin tema ve gorunum tercihlerini guncelleyin" />
             <AppearanceTabs />
         </div>
     </SettingsLayout>
