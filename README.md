@@ -11,11 +11,15 @@
   <a href="https://github.com/aptus0/AladdinCRM/releases"><img src="https://img.shields.io/github/v/release/aptus0/AladdinCRM?sort=semver" alt="Latest Release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
   <a href="https://github.com/aptus0/AladdinCRM/issues"><img src="https://img.shields.io/github/issues/aptus0/AladdinCRM" alt="Issues"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/aptus0/AladdinCRM" alt="Closed Issues"></a>
   <a href="https://github.com/aptus0/AladdinCRM/pulls"><img src="https://img.shields.io/github/issues-pr/aptus0/AladdinCRM" alt="Pull Requests"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed/aptus0/AladdinCRM" alt="Closed Pull Requests"></a>
   <a href="https://github.com/aptus0/AladdinCRM/stargazers"><img src="https://img.shields.io/github/stars/aptus0/AladdinCRM" alt="Stars"></a>
   <a href="https://github.com/aptus0/AladdinCRM/network/members"><img src="https://img.shields.io/github/forks/aptus0/AladdinCRM" alt="Forks"></a>
   <a href="https://github.com/aptus0/AladdinCRM/graphs/contributors"><img src="https://img.shields.io/github/contributors/aptus0/AladdinCRM" alt="Contributors"></a>
+  <a href="https://github.com/aptus0/AladdinCRM/graphs/commit-activity"><img src="https://img.shields.io/github/commit-activity/m/aptus0/AladdinCRM" alt="Commit Activity"></a>
   <a href="https://github.com/aptus0/AladdinCRM/commits/main"><img src="https://img.shields.io/github/last-commit/aptus0/AladdinCRM/main" alt="Last Commit"></a>
+  <a href="https://github.com/aptus0/AladdinCRM"><img src="https://img.shields.io/github/repo-size/aptus0/AladdinCRM" alt="Repo Size"></a>
   <a href="https://github.com/aptus0/AladdinCRM/labels/good%20first%20issue"><img src="https://img.shields.io/github/issues/aptus0/AladdinCRM/good%20first%20issue" alt="Good First Issues"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-orange.svg" alt="Contributions Welcome"></a>
   <a href="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
