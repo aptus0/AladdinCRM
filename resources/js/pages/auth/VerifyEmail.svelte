@@ -15,15 +15,15 @@
     } = $props();
 </script>
 
-<AppHead title="Email verification" />
+<AppHead title="E-posta Dogrulamasi" />
 
 <AuthLayout
-    title="Verify email"
-    description="Please verify your email address by clicking on the link we just emailed to you."
+    title="E-posta adresinizi dogrulayin"
+    description="Az once gonderdigimiz e-postadaki baglantiya tiklayarak hesabinizi etkinlestirin."
 >
     {#if status === 'verification-link-sent'}
         <div class="mb-4 text-center text-sm font-medium text-green-600">
-            A new verification link has been sent to the email address you provided during registration.
+            Kayit sirasinda girdiginiz e-posta adresine yeni bir dogrulama baglantisi gonderildi.
         </div>
     {/if}
 
@@ -31,11 +31,11 @@
         {#snippet children({ processing })}
             <Button type="submit" disabled={processing} variant="secondary">
                 {#if processing}<Spinner />{/if}
-                Resend verification email
+                Dogrulama e-postasini tekrar gonder
             </Button>
 
             <TextLink href={logout()} as="button" class="mx-auto block text-sm">
-                Log out
+                Cikis yap
             </TextLink>
         {/snippet}
     </Form>

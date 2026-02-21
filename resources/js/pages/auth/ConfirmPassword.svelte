@@ -10,17 +10,17 @@
     import { store } from '@/routes/password/confirm';
 </script>
 
-<AppHead title="Confirm password" />
+<AppHead title="Sifre Onayi" />
 
 <AuthLayout
-    title="Confirm your password"
-    description="This is a secure area of the application. Please confirm your password before continuing."
+    title="Sifrenizi onaylayin"
+    description="Bu alan guvenlik nedeniyle korunuyor. Devam etmek icin sifrenizi dogrulayin."
 >
     <Form {...store.form()} resetOnSuccess>
         {#snippet children({ errors, processing })}
             <div class="space-y-6">
                 <div class="grid gap-2">
-                    <Label for="password">Password</Label>
+                    <Label for="password">Sifre</Label>
                     <Input
                         id="password"
                         type="password"
@@ -40,7 +40,7 @@
                         data-test="confirm-password-button"
                     >
                         {#if processing}<Spinner />{/if}
-                        Confirm Password
+                        Sifreyi onayla
                     </Button>
                 </div>
             </div>

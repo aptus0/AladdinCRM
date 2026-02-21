@@ -12,9 +12,13 @@
     import { store } from '@/routes/register';
 </script>
 
-<AppHead title="Register" />
+<AppHead title="Kayit Ol" />
 
-<AuthBase title="Create an account" description="Enter your details below to create your account">
+<AuthBase
+    sceneType="register"
+    title="Yeni hesap olusturun"
+    description="Ekibiniz icin CRM erisimini baslatmak adina bilgileri doldurun"
+>
     <Form
         {...store.form()}
         resetOnSuccess={['password', 'password_confirmation']}
@@ -23,53 +27,53 @@
         {#snippet children({ errors, processing })}
             <div class="grid gap-6">
                 <div class="grid gap-2">
-                    <Label for="name">Name</Label>
+                    <Label for="name">Ad soyad</Label>
                     <Input
                         id="name"
                         type="text"
                         required
                         autocomplete="name"
                         name="name"
-                        placeholder="Full name"
+                        placeholder="Ad Soyad"
                     />
                     <InputError message={errors.name} />
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="email">Email address</Label>
+                    <Label for="email">E-posta adresi</Label>
                     <Input
                         id="email"
                         type="email"
                         required
                         autocomplete="email"
                         name="email"
-                        placeholder="email@example.com"
+                        placeholder="ornek@firma.com"
                     />
                     <InputError message={errors.email} />
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="password">Password</Label>
+                    <Label for="password">Sifre</Label>
                     <Input
                         id="password"
                         type="password"
                         required
                         autocomplete="new-password"
                         name="password"
-                        placeholder="Password"
+                        placeholder="Guclu bir sifre belirleyin"
                     />
                     <InputError message={errors.password} />
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="password_confirmation">Confirm password</Label>
+                    <Label for="password_confirmation">Sifreyi dogrula</Label>
                     <Input
                         id="password_confirmation"
                         type="password"
                         required
                         autocomplete="new-password"
                         name="password_confirmation"
-                        placeholder="Confirm password"
+                        placeholder="Sifrenizi tekrar girin"
                     />
                     <InputError message={errors.password_confirmation} />
                 </div>
@@ -81,14 +85,14 @@
                     data-test="register-user-button"
                 >
                     {#if processing}<Spinner />{/if}
-                    Create account
+                    Hesap olustur
                 </Button>
             </div>
 
             <div class="text-center text-sm text-muted-foreground">
-                Already have an account?
+                Zaten bir hesabiniz var mi?
                 <TextLink href={login()} class="underline underline-offset-4">
-                    Log in
+                    Giris yap
                 </TextLink>
             </div>
         {/snippet}

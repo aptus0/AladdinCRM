@@ -18,9 +18,9 @@
     } = $props();
 </script>
 
-<AppHead title="Reset password" />
+<AppHead title="Sifre Sifirlama" />
 
-<AuthLayout title="Reset password" description="Please enter your new password below">
+<AuthLayout title="Sifreyi sifirla" description="Yeni sifrenizi asagidan belirleyin">
     <Form
         {...update.form()}
         transform={(data) => ({ ...data, token, email })}
@@ -29,7 +29,7 @@
         {#snippet children({ errors, processing })}
             <div class="grid gap-6">
                 <div class="grid gap-2">
-                    <Label for="email">Email</Label>
+                    <Label for="email">E-posta</Label>
                     <Input
                         id="email"
                         type="email"
@@ -43,27 +43,27 @@
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="password">Password</Label>
+                    <Label for="password">Yeni sifre</Label>
                     <Input
                         id="password"
                         type="password"
                         name="password"
                         autocomplete="new-password"
                         class="mt-1 block w-full"
-                        placeholder="Password"
+                        placeholder="Yeni sifrenizi girin"
                     />
                     <InputError message={errors.password} />
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="password_confirmation">Confirm Password</Label>
+                    <Label for="password_confirmation">Sifreyi dogrula</Label>
                     <Input
                         id="password_confirmation"
                         type="password"
                         name="password_confirmation"
                         autocomplete="new-password"
                         class="mt-1 block w-full"
-                        placeholder="Confirm password"
+                        placeholder="Sifrenizi tekrar girin"
                     />
                     <InputError message={errors.password_confirmation} />
                 </div>
@@ -75,7 +75,7 @@
                     data-test="reset-password-button"
                 >
                     {#if processing}<Spinner />{/if}
-                    Reset password
+                    Sifreyi sifirla
                 </Button>
             </div>
         {/snippet}

@@ -25,7 +25,7 @@
 
     const breadcrumbItems: BreadcrumbItem[] = [
         {
-            title: 'Profile settings',
+            title: 'Profil ayarlari',
             href: edit().url,
         },
     ];
@@ -33,14 +33,14 @@
     const user = $derived($page.props.auth.user);
 </script>
 
-<AppHead title="Profile settings" />
+<AppHead title="Profil ayarlari" />
 
 <AppLayout breadcrumbs={breadcrumbItems}>
-    <h1 class="sr-only">Profile Settings</h1>
+    <h1 class="sr-only">Profil ayarlari</h1>
 
     <SettingsLayout>
         <div class="flex flex-col space-y-6">
-            <Heading variant="small" title="Profile information" description="Update your name and email address" />
+            <Heading variant="small" title="Profil bilgileri" description="Adinizi ve e-posta adresinizi guncelleyin" />
 
             <Form
                 {...ProfileController.update.form()}
@@ -49,7 +49,7 @@
             >
                 {#snippet children({ errors, processing, recentlySuccessful })}
                     <div class="grid gap-2">
-                        <Label for="name">Name</Label>
+                        <Label for="name">Ad soyad</Label>
                         <Input
                             id="name"
                             name="name"
@@ -57,13 +57,13 @@
                             value={user.name}
                             required
                             autocomplete="name"
-                            placeholder="Full name"
+                            placeholder="Ad Soyad"
                         />
                         <InputError class="mt-2" message={errors.name} />
                     </div>
 
                     <div class="grid gap-2">
-                        <Label for="email">Email address</Label>
+                        <Label for="email">E-posta adresi</Label>
                         <Input
                             id="email"
                             type="email"
@@ -72,7 +72,7 @@
                             value={user.email}
                             required
                             autocomplete="username"
-                            placeholder="Email address"
+                            placeholder="ornek@firma.com"
                         />
                         <InputError class="mt-2" message={errors.email} />
                     </div>
@@ -80,25 +80,25 @@
                     {#if mustVerifyEmail && !user.email_verified_at}
                         <div>
                             <p class="-mt-4 text-sm text-muted-foreground">
-                                Your email address is unverified.
+                                E-posta adresiniz henuz dogrulanmadi.
                                 <TextLink href={send()} as="button">
-                                    Click here to resend the verification email.
+                                    Dogrulama e-postasini yeniden gondermek icin tiklayin.
                                 </TextLink>
                             </p>
 
                             {#if status === 'verification-link-sent'}
                                 <div class="mt-2 text-sm font-medium text-green-600">
-                                    A new verification link has been sent to your email address.
+                                    E-posta adresinize yeni bir dogrulama baglantisi gonderildi.
                                 </div>
                             {/if}
                         </div>
                     {/if}
 
                     <div class="flex items-center gap-4">
-                        <Button type="submit" disabled={processing} data-test="update-profile-button">Save</Button>
+                        <Button type="submit" disabled={processing} data-test="update-profile-button">Kaydet</Button>
 
                         {#if recentlySuccessful}
-                            <p class="text-sm text-neutral-600">Saved.</p>
+                            <p class="text-sm text-neutral-600">Kaydedildi.</p>
                         {/if}
                     </div>
                 {/snippet}

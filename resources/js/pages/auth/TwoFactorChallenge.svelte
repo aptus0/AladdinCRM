@@ -15,16 +15,16 @@
     const authConfigContent: TwoFactorConfigContent = $derived.by(() => {
         if (showRecoveryInput) {
             return {
-                title: 'Recovery Code',
-                description: 'Please confirm access to your account by entering one of your emergency recovery codes.',
-                buttonText: 'login using an authentication code',
+                title: 'Kurtarma Kodu',
+                description: 'Hesabiniza erisimi onaylamak icin acil durum kurtarma kodlarinizdan birini girin.',
+                buttonText: 'dogrulama kodu ile giris yap',
             };
         }
 
         return {
-            title: 'Authentication Code',
-            description: 'Enter the authentication code provided by your authenticator application.',
-            buttonText: 'login using a recovery code',
+            title: 'Dogrulama Kodu',
+            description: 'Kimlik dogrulama uygulamanizda olusan kodu girin.',
+            buttonText: 'kurtarma kodu ile giris yap',
         };
     });
 
@@ -35,7 +35,7 @@
     }
 </script>
 
-<AppHead title="Two-Factor Authentication" />
+<AppHead title="Iki Asamali Dogrulama" />
 
 <AuthLayout title={authConfigContent.title} description={authConfigContent.description}>
     <div class="space-y-6">
@@ -65,9 +65,9 @@
                         </div>
                         <InputError message={errors.code} />
                     </div>
-                    <Button type="submit" class="w-full" disabled={processing}>Continue</Button>
+                    <Button type="submit" class="w-full" disabled={processing}>Devam et</Button>
                     <div class="text-center text-sm text-muted-foreground">
-                        <span>or you can </span>
+                        <span>veya </span>
                         <button
                             type="button"
                             class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
@@ -88,14 +88,14 @@
                     <Input
                         name="recovery_code"
                         type="text"
-                        placeholder="Enter recovery code"
+                        placeholder="Kurtarma kodunu girin"
                         required
                     />
                     <InputError message={errors.recovery_code} />
-                    <Button type="submit" class="w-full" disabled={processing}>Continue</Button>
+                    <Button type="submit" class="w-full" disabled={processing}>Devam et</Button>
 
                     <div class="text-center text-sm text-muted-foreground">
-                        <span>or you can </span>
+                        <span>veya </span>
                         <button
                             type="button"
                             class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"

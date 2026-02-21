@@ -18,9 +18,12 @@
     } = $props();
 </script>
 
-<AppHead title="Forgot password" />
+<AppHead title="Sifremi Unuttum" />
 
-<AuthLayout title="Forgot password" description="Enter your email to receive a password reset link">
+<AuthLayout
+    title="Sifrenizi mi unuttunuz?"
+    description="Sifre yenileme baglantisi almak icin e-posta adresinizi girin"
+>
     {#if status}
         <div class="mb-4 text-center text-sm font-medium text-green-600">
             {status}
@@ -30,14 +33,14 @@
     <div class="space-y-6">
         <Form {...email.form()}>
             {#snippet children({ errors, processing })}
-                <div class="grid gap-2">
-                    <Label for="email">Email address</Label>
+            <div class="grid gap-2">
+                    <Label for="email">E-posta adresi</Label>
                     <Input
                         id="email"
                         type="email"
                         name="email"
                         autocomplete="off"
-                        placeholder="email@example.com"
+                        placeholder="ornek@firma.com"
                     />
                     <InputError message={errors.email} />
                 </div>
@@ -50,15 +53,15 @@
                         data-test="email-password-reset-link-button"
                     >
                         {#if processing}<Spinner />{/if}
-                        Email password reset link
+                        Sifre yenileme baglantisi gonder
                     </Button>
                 </div>
             {/snippet}
         </Form>
 
         <div class="space-x-1 text-center text-sm text-muted-foreground">
-            <span>Or, return to</span>
-            <TextLink href={login()}>log in</TextLink>
+            <span>Veya</span>
+            <TextLink href={login()}>giris ekranina don</TextLink>
         </div>
     </div>
 </AuthLayout>
