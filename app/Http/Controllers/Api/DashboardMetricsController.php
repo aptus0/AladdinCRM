@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Actions\Dashboard\GetDashboardMetrics;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class DashboardMetricsController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, GetDashboardMetrics $getDashboardMetrics): JsonResponse
     {
-        //
+        return response()->json($getDashboardMetrics->handle($request->user()));
     }
 }

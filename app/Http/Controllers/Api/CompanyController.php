@@ -3,48 +3,73 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Company\StoreCompanyRequest;
+use App\Http\Requests\Api\Company\UpdateCompanyRequest;
 use App\Models\Company;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->authorizeResource(Company::class, 'company');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function index(Request $request): JsonResponse
     {
-        //
+        $user = $request->user();
+
+        $companies = Company::query()
+            ->when(
+                ! $user->isAdmin(),
+                fn ($query) => $query->where('created_by', $user->id),
+            )
+            ->when(
+                $request->filled('q'),
+                function ($query) use ($request): void {
+                    $search = (string) $request->string('q');
+
+                    $query->where(function ($innerQuery) use ($search): void {
+                        $innerQuery->where('name', 'like', "%{$search}%")
+                            ->orWhere('email', 'like', "%{$search}%")
+                            ->orWhere('phone', 'like', "%{$search}%")
+                            ->orWhere('industry', 'like', "%{$search}%");
+                    });
+                },
+            )
+            ->latest('id')
+            ->paginate((int) $request->integer('per_page', 15));
+
+        return response()->json($companies);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Company $company)
+    public function store(StoreCompanyRequest $request): JsonResponse
     {
-        //
+        $company = Company::query()->create([
+            ...$request->validated(),
+            'created_by' => $request->user()->id,
+        ]);
+
+        return response()->json($company, 201);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Company $company)
+    public function show(Company $company): JsonResponse
     {
-        //
+        return response()->json($company->loadCount(['contacts', 'opportunities', 'quotes', 'tasks', 'tickets']));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Company $company)
+    public function update(UpdateCompanyRequest $request, Company $company): JsonResponse
     {
-        //
+        $company->update($request->validated());
+
+        return response()->json($company->fresh());
+    }
+
+    public function destroy(Company $company): JsonResponse
+    {
+        $company->delete();
+
+        return response()->json(['message' => 'Company deleted']);
     }
 }
