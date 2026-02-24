@@ -250,3 +250,8 @@ Details: [`docs/open-source-model.md`](docs/open-source-model.md)
 ## License
 
 Released under the MIT License. See [`LICENSE`](LICENSE).
+
+## Render Deployment
+
+Render blueprint + Docker deployment steps are documented in:
+[`docs/render-deploy.md`](docs/render-deploy.md)
